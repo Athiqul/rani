@@ -69,6 +69,7 @@ class Home_controller extends CI_Controller {
         $this->load->view('themes/' . $default_theme . '/menu');
         $this->load->view('themes/' . $default_theme . '/home_view');
         $this->load->view('themes/' . $default_theme . '/footer');
+       // $this->load->view('custom/test');
 
         $this->output->cache(30); 
        

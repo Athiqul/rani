@@ -91,8 +91,8 @@
     <!-- optimization css link -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>application/views/themes/<?php echo html_escape($default_theme); ?>/web-assets/css/app.css?<?php echo version()?>">
     <?php } else{ ?>
-    <!-- <link href="<?php echo $ascurl; ?>/plugins/bootstrap-4.5.3/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="<?php echo $ascurl; ?>/plugins/bootstrap-5.3.0/css/bootstrap.min.css" rel="stylesheet">
+   
+   
     <link href="<?php echo $ascurl; ?>/css/animsition.min.css" rel="stylesheet">
     <link href="<?php echo $ascurl; ?>/plugins/metismenu/dist/metisMenu.min.css" rel="stylesheet">
     <link href="<?php echo $ascurl; ?>/plugins/jquery-ui-1.12.1.custom/jquery-ui.min.css" rel="stylesheet">
@@ -130,6 +130,17 @@
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
     <script src="<?php echo $ascurl; ?>/js/jquery-3-6-4.min.js"></script>
+    <style>
+        .navbar-custom {
+            background-color: #393536 !important;
+        }
+
+        .navbar-custom .nav-link {
+            color: yellow !important;
+        }
+    </style>
+
+
 
 </head>
 

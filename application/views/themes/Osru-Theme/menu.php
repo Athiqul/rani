@@ -1,26 +1,26 @@
-<?php 
-    $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
-    $bu = base_url();
-    if (isset($ads) && is_array($ads)) {
-        extract($ads);
-    }
-    $menu_slug = $this->uri->segment(2);
-    if(isset($menu_slug)){
-        $selected = 'selected';
-    }else{
-        $selecte = 'selected';
-    }
+<!-- <?php 
+    // $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
+    // $bu = base_url();
+    // if (isset($ads) && is_array($ads)) {
+    //     extract($ads);
+    // }
+    // $menu_slug = $this->uri->segment(2);
+    // if(isset($menu_slug)){
+    //     $selected = 'selected';
+    // }else{
+    //     $selecte = 'selected';
+    // }
 ?>
 
 <style type="text/css">
     .selected{
         color: #035fa0 !important;
     }
-</style>
+</style> -->
 
 
 
-
+<!-- 
         <header class="mainHeader">
             <div class="logo-wrapper">
                 <div class="container">
@@ -181,7 +181,7 @@
 
             <div class="menu_wrapper menuBar">
                 <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light p-0">
+                    <nav class="navbar navbar-expand-lg navbar-dark  p-0">
                         <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01">
 
                             <ul class="navbar-nav">
@@ -256,4 +256,40 @@
                     </nav>
                 </div>
             </div>
-        </header> 
+        </header>  -->
+
+        <nav class="navbar navbar-expand-lg navbar-light navbar-custom justify-content-around">
+        <a class="navbar-brand" href="#"><img src="<?= base_url() . '/assets/custom/image/logo.png' ?>" alt="" width="80px" class="mx-auto img-fluid"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Tips & Predictions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cricket</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Football</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#"><img src="<?= base_url() . '/assets/custom/image/sign_in.png' ?>" alt="" width="80px" class="mx-auto img-fluid"></a>
+                </li>
+
+            </ul>
+        </div>
+
+    </nav>
+
