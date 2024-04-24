@@ -1,972 +1,1213 @@
 <?php 
+   
     $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
-    $bu = base_url();
-    if (isset($ads) && is_array($ads)) {
-        extract($ads);
-    }
-    require('common_file/function.php');
+    
+   
+
+
 ?>
-
-        <!-- /.Start of news masonry -->
-        <div class="news-masonry mt-5">
-            <div class="container">
-                <div class="row mas-m">
-                    <div class="col-xl-3 col-6 col-xxs-12 mas-p">
-                        <?php 
-                            for($i=2;$i<=3;$i++){
-                            if (!isset($hn['news_title_'.$i]))
-                            continue;
-                        ?>
-
-                        <div class="mas-item mas-item-sm mb-1 text-center play-button_hover">
-                            <?php if(@$hn['image_check_'.$i]!=NULL){?>
-                                <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="opadow">
-                                    <?php echo @$hn['playbtn_'.$i]?>
-                                    <img class="img-fluid full-width-sm" src="<?php echo html_escape(@$hn['image_thumb_'.$i])?>" alt="<?php echo  html_escape(@$hn['image_alt_'.$i]) ?>">
-                                </a>
-                            <?php } else{ ?>
-                                <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="opadow">
-                                    <?php echo @$hn['playbtn_'.$i]?>
-                                    <img  src="<?php echo html_escape(@$hn['default_ima_'.$i]);?>" class="img-fluid full-width-sm">
-                                </a>
-                            <?php }?>
-
-                                <div class="mas-text">
-                                    <div class="post-cat"><a href="<?php echo html_escape(@$hn['category_link_'.$i])?>"><?php echo html_escape(@$hn['category_name_'.$i])?></a></div>
-                                    <h6 class="mas-title"><a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>"><?php echo htmlspecialchars_decode(@$hn['news_title_'.$i]);?></a></h6>
-                                    <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="read-more"><?php echo display('read_more')?> &#8702;</a>
-                                </div>
-                        </div>
-
-                        <?php }?>
-                    </div>
-
-
-                    <?php if(@$hn['news_title_1']!=NULL){?>
-
-                        <div class="col-xl-6 show-xl mas-p">
-                            <div class="mas-item text-center play-button_hover">
-                                <?php if(@$hn['image_check_1']!=NULL){?>
-                                    <a href="<?php echo html_escape(@$hn['news_link_1']);?>" class="opadow">
-                                        <?php echo @$hn['playbtn_1']?>
-                                        <img class="img-fluid full-width-sm" src="<?php echo html_escape(@$hn['image_large_1']);?>" alt="<?php echo  html_escape(@$hn['image_alt_1']) ?>">
-                                    </a>
-                                <?php } else{ ?>
-                                    <a href="<?php echo html_escape(@$hn['news_link_1']);?>" class="opadow">
-                                        <?php echo @$hn['playbtn_1']?>
-                                        <img class="img-fluid full-width-sm" src="<?php echo base_url('uploads/default-post-img.jpg');?>" alt="<?php echo  html_escape(@$hn['image_alt_1']) ?>">
-                                    </a>
-                                <?php } ?>
-
-                                <div class="mas-text">
-                                    <div class="post-cat"><a href="<?php echo html_escape(@$hn['category_link_1'])?>"><?php echo html_escape(@$hn['category_name_1']);?></a></div>
-                                    <h5 class="mas-title"><a href="<?php echo html_escape(@$hn['news_link_1']);?>"><?php echo htmlspecialchars_decode(@$hn['news_title_1']);?></a></h5>
-                                    <a href="<?php echo html_escape(@$hn['news_link_1']);?>" class="read-more"><?php echo display('read_more')?> &#8702;</a>
-                                </div>
-                            </div>
-                        </div>
-
-                    <?php }?>
-
-                    <div class="col-xl-3 col-6 col-xxs-12 mas-p">
-                        <?php 
-                            for($i=4;$i<=5;$i++){
-                            if (!isset($hn['news_title_'.$i]))
-                            continue;
-                        ?>
-                            <div class="mas-item mas-item-sm mb-1 text-center play-button_hover">
-                                
-                                <?php if(@$hn['image_check_'.$i]!=NULL){?>
-                                    <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="opadow">
-                                        <?php echo @$hn['playbtn_'.$i]?>
-                                        <img class="img-fluid full-width-sm" src="<?php echo html_escape(@$hn['image_thumb_'.$i])?>" alt="<?php echo  html_escape(@$hn['image_alt_'.$i]) ?>">
-                                    </a>
-                                <?php } else{ ?>
-                                    <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="opadow">
-                                        <?php echo @$hn['playbtn_'.$i]?>
-                                        <img  src="<?php echo base_url('uploads/default-post-img.jpg');?>" class="img-fluid full-width-sm">
-                                    </a>
-                                <?php }?>
-                                <div class="mas-text">
-                                    <div class="post-cat"><a href="<?php echo html_escape(@$hn['category_link_'.$i])?>"><?php echo html_escape(@$hn['category_name_'.$i])?></a></div>
-                                    <h6 class="mas-title"><a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>"><?php echo htmlspecialchars_decode(@$hn['news_title_'.$i]);?></a></h6>
-                                    <a href="<?php echo html_escape(@$hn['news_link_'.$i]);?>" class="read-more"><?php echo display('read_more')?> &#8702;</a>
-                                </div>
-
-                            </div>
-                        <?php }?>
-                    </div>
-
-                </div>
-            </div>
+<main>
+    <!-- Slider section -->
+    <section class="section-padding">
+      <div class="custom-container">
+        <div class="mb-5 flex justify-between items-center">
+          <h1 class="section-heading">Latest Score</h1>
+          <select name="games" id="games"
+            class="py-3 px-6 rounded-lg border border-[#D8DCE3] text-xs lg:text-base font-semibold outline-none">
+            <option value="cricket">Cricket</option>
+            <option value="football">Football</option>
+          </select>
         </div>
-        <!-- /.End of news masonry -->
-
-        <div class="page-content">
-            <div class="container">
-                <div class="row mt-5">
-                    <div class="col-xl-9 col-lg-8 content-4">
-
-                        <?php
-                            if ($home_page_positions[1]['status'] == 1) { 
-                        ?>
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="sec-block mb-4">
-                                    <a href="<?php echo base_url('category/').$pn['position_1']['category_1']?>" class="sec-title"><?php echo html_escape(@$home_page_positions[1]['cat_name']); ?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                    <div class="btn-part">
-                                        <a href="<?php echo base_url('category/').$pn['position_1']['category_1']?>" class="btn-more"><?php echo display('read_more')?></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <?php 
-                                for($i=1; $i<=2; $i++){
-                                    if (!isset($pn['position_1']['news_title_'.$i]))
-                                    continue;
-                            ?>
-
-                            <div class="col-md-6">
-                                <article class="grid_post grid_post_lg text-xs-center">
-                                    <figure>
-                                        <?php if(@$pn['position_1']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_1']['playbtn_'.$i]?>
-                                                <img class="img-fluid" src="<?php echo html_escape(@$pn['position_1']['image_large_'.$i]); ?>" alt="<?php echo html_escape($pn['position_1']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{ ?>
-                                            <?php echo @$pn['position_1']['playbtn_'.$i]?>
-                                            <a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>"  class="grid_image">
-                                                <?php echo @$pn['position_1']['playbtn_'.$i]?>
-                                                <img class="img-fluid" src="<?php echo html_escape(@$pn['position_1']['default_img_'.$i]); ?>" alt="<?php echo html_escape($pn['position_1']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php }?>
-                                        <figcaption>
-                                            <div class="vh_center">
-                                                <div class="entry-meta">
-                                                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_1']['post_date_as_'.$i]); ?></span>
-                                                </div>
-                                            </div>
-                                            <h4 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>" class="line_height_30"><?php echo htmlspecialchars_decode(@$pn['position_1']['news_title_'.$i]); ?></a></h4>
-                                            <?php echo ($pn['position_1']['short_news_'.$i]);?>
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-
-                            <?php } ?>
-
-                            <?php 
-                                for($i=3; $i<=5; $i++){
-                                    if (!isset($pn['position_1']['news_title_'.$i]))
-                                    continue;
-                            ?>
-                                <div class="col-md-4">
-                                    <article class="grid_post grid_post_lg text-xs-center">
-                                        <figure>
-
-                                        <?php if(@$pn['position_1']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_1']['playbtn_'.$i]?>
-                                                <img class="img-fluid" src="<?php echo html_escape(@$pn['position_1']['image_large_'.$i]); ?>" alt="<?php echo html_escape($pn['position_1']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{ ?>
-                                            <a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>"  class="grid_image">
-                                                <?php echo @$pn['position_1']['playbtn_'.$i]?>
-                                                <img class="img-fluid" src="<?php echo html_escape(@$pn['position_1']['default_img_'.$i]); ?>" alt="">
-                                            </a>
-                                        <?php }?>
-
-                                            <figcaption>
-                                                <div class="vh_center">
-                                                    <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_1']['category_link_'.$i]); ?>"><?php echo html_escape(@$pn['position_1']['category_name_'.$i]); ?></a></div>
-                                                    <div class="entry-meta">
-                                                        <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_1']['post_date_as_'.$i]); ?></span>
-                                                    </div>
-                                                </div>
-                                                <h6 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_1']['news_link_'.$i]); ?>" class="line_height_20"><?php echo htmlspecialchars_decode(@$pn['position_1']['news_title_'.$i]); ?></a></h6>
-                                                <!-- /.Post button -->
-                                            </figcaption>
-                                        </figure>
-                                    </article>
-                                </div>
-                            <?php } ?>
-                        </div>
-
-                        <?php } ?>
-
-                        <!-- ad area Two -->
-                        <div class=" row my-4 <?php echo (@$lg_status_12==0?'d-md-none':'')?> <?php echo (@$sm_status_12==0?'d-xs-none':'')?>"> <!-- add -->
-                            <div class="col-md-12">
-                               <?php echo @$home_12; ?>
-                           </div>
-                        </div>
-
-                        <?php if(@$home_page_positions[2]['status']==1){ ?>
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="sec-block mb-4">
-                                    <a href="<?php echo base_url('category/').$pn['position_2']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[2]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                    <div class="btn-part">
-                                        <a href="<?php echo base_url('category/').$pn['position_2']['category_1']?>" class="btn-more"><?php echo @display('read_more');?></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <article class="grid_post grid_post_lg text-xs-center">
-                                    <figure>
-                                        <!-- post image -->
-                                        <?php if(@$pn['position_2']['image_check_1']!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_2']['news_link_1']); ?>" class="grid_image">
-                                                <?php echo @$pn['position_2']['playbtn_1']?>
-                                                <img src="<?php echo html_escape(@$pn['position_2']['image_large_1']); ?>" class="img-fluid" alt="<?php echo html_escape(@$pn['position_2']['image_alt_1'])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_2']['news_link_1']); ?>" class="grid_image">
-                                                <img class="img-responsive" src="<?php echo html_escape(@$pn['position_2']['default_img_1']); ?>" class="img-fluid">
-                                            </a>
-                                        <?php } ?>  
-
-                                        <figcaption>
-                                            <div class="vh_center">
-                                                <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_2']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_2']['category_name_1']); ?></a></div>
-                                                <div class="entry-meta">
-                                                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_2']['post_date_as_1']); ?></span>
-                                                </div>
-                                            </div>
-                                            <h4 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_2']['news_link_1']); ?>" class="line_height_30"><?php echo htmlspecialchars_decode(@$pn['position_2']['news_title_1']); ?></a></h4>
-                                            <?php echo ($pn['position_2']['short_news_1']);?>
-                                            <!-- /.Post button -->
-                                        </figcaption>
-                                    </figure>
-                                </article>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="row">
-                                    <?php for($i=2; $i<=5; $i++){
-                                        if (!isset($pn['position_2']['news_title_'.$i]))
-                                        continue;
-                                    ?>
-                                        <div class="col-md-6">
-                                            <article class="grid_post grid_post_lg text-xs-center">
-                                                <figure>
-                                                    <!-- post image -->
-                                                    <?php if(@$pn['position_2']['image_check_'.$i]!=NULL){?>
-                                                        <a href="<?php echo html_escape(@$pn['position_2']['news_link_'.$i]); ?>" class="grid_image">
-                                                            <?php echo @$pn['position_2']['playbtn_1']?>
-                                                            <img src="<?php echo html_escape(@$pn['position_2']['image_large_'.$i]); ?>" class="img-fluid" alt="<?php echo html_escape(@$pn['position_2']['image_alt_'.$i])?>">
-                                                        </a>
-                                                    <?php } else{?>
-                                                     <a href="<?php echo html_escape(@$pn['position_2']['news_link_'.$i]); ?>" class="grid_image">
-                                                            <?php echo @$pn['position_2']['playbtn_'.$i]?>
-                                                            <img src="<?php echo html_escape(@$pn['position_2']['default_img_'.$i]); ?>" class="img-fluid" alt="<?php echo html_escape(@$pn['position_2']['image_alt_'.$i])?>">
-                                                        </a>
-                                                    <?php } ?>
-
-                                                    <figcaption>
-                                                        <div class="post-cat mb-2"><a href="<?php echo html_escape(@$pn['position_2']['category_link_'.$i]); ?>"><?php echo html_escape(@$pn['position_2']['category_name_'.$i]); ?></a></div>
-                                                        <div class="entry-meta">
-                                                            <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_2']['post_date_as_'.$i]); ?></span>
-                                                            
-                                                        </div>
-                                                        <h6 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_2']['news_link_'.$i]); ?>" class="line_height_20"><?php echo htmlspecialchars_decode(@$pn['position_2']['news_title_'.$i]); ?></a></h6>
-                                                        <!-- /.Post button -->
-                                                    </figcaption>
-                                                </figure>
-                                            </article>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php } ?>
-
-                        <!-- ad area Three -->
-                        <div class="row my-4 <?php echo (@$lg_status_13==0?'d-md-none':'')?> <?php echo (@$sm_status_13==0?'d-xs-none':'')?>"> <!-- add -->
-                            <div class="col-md-12">
-                               <?php echo @$home_13; ?>
-                           </div>
-                        </div>
+        <div class="banner-slider" id="scrollport">
 
 
-                        <?php if(@$home_page_positions[3]['status']==1){ ?>
+          <div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
+            <div class="flex justify-between items-start gap-2">
+              <div>
+                <h4 class="text-[10px] lg:text-[11px] leading-[14px] text-white">
+                  Test 3 of 5(tied 1:1) Day 3 Session 1
+                </h4>
 
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <div class="sec-block mb-4">
-                                    <a href="<?php echo base_url('category/').$pn['position_3']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[3]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                    <div class="btn-part">
-                                        <a href="<?php echo base_url('category/').$pn['position_2']['category_1']?>" class="btn-more"><?php echo display('read_more')?></a>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-xl-7 col-lg-12">
-
-                                <article class="grid_post grid_post_lg text-xs-center">
-
-                                    <figure>
-                                        <!-- post image -->
-                                        <?php if(@$pn['position_3']['image_check_1']!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_3']['news_link_1']); ?>" class="grid_image">
-                                                <?php echo @$pn['position_3']['playbtn_1']?>
-                                                <img src="<?php echo html_escape(@$pn['position_3']['image_large_1']); ?>" class="img-fluid" alt="<?php echo html_escape(@$pn['position_3']['image_alt_1'])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_3']['news_link_1']); ?>" class="grid_image">
-                                                <img src="<?php echo html_escape(@$pn['position_3']['default_img_1']); ?>" class="img-fluid" alt="<?php echo html_escape(@$pn['position_3']['image_alt_1'])?>">
-                                            </a>
-                                        <?php } ?>  
-
-                                        <figcaption>
-                                            <div class="vh_center">
-                                                <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_3']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_3']['category_name_1']); ?></a></div>
-                                                <div class="entry-meta">
-                                                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_3']['post_date_as_1']); ?></span>
-                                                    
-                                                </div>
-                                            </div>
-                                            <h4 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_3']['news_link_1']); ?>" class="line_height_30"><?php echo htmlspecialchars_decode(@$pn['position_3']['news_title_1']); ?></a></h4>
-                                            <?php echo ($pn['position_3']['short_news_1']);?>
-                                            <!-- /.Post button -->
-                                        </figcaption>
-
-                                    </figure>
-
-                                </article>
-
-                            </div>
-
-                            <div class="col-xl-5 col-lg-12">
-
-                                <?php for($i=2; $i<=6; $i++){
-                                    if (!isset($pn['position_3']['news_title_'.$i]))
-                                    continue;
-                                ?>
-
-                                <div class="media meida-md d-flex">
-
-                                    <div class="media-left">
-                                        <!-- post image -->
-                                        <?php if(@$pn['position_3']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_3']['news_link_'.$i]); ?>" >
-                                                <?php echo @$pn['position_3']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_3']['image_large_'.$i]); ?>" class="media-object" alt="<?php echo html_escape(@$pn['position_3']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_3']['news_link_'.$i]); ?>">
-                                                <?php echo @$pn['position_3']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_3']['default_img_'.$i]); ?>" class="media-object" alt="<?php echo html_escape(@$pn['position_3']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-
-                                    <!-- /.Post image -->
-                                    <div class="media-body">
-                                        <div class="post-header">
-                                            <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_3']['news_link_'.$i])?>">
-                                                <?php echo character_limiter(htmlspecialchars_decode(@$pn['position_3']['news_title_'.$i]),30)?>
-                                            </a></h3>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_3']['post_date_as_'.$i]); ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <?php } ?>  
-
-                            </div>
-                        </div>
-                        <?php } ?>
-                    </div>
-
-
-                    <div class="col-xl-3 col-lg-4 rightSidebar show-lg">
-
-
-                    <div class="img-fluid <?php echo (@$lg_status_14==0?'d-md-none':'')?> <?php echo (@$sm_status_14==0?'d-xs-none':'')?>">
-                        <?php echo @$home_14; ?>
-                    </div>
-
-                        
-                        <?php 
-                            $this->load->view('themes/' . $default_theme . '/components/__poll');
-                        ?>
-
-                        <div class="latest_post_widget mt-4">
-
-                            <div class="sec-block mb-4">
-                                <a class="sec-title"><?php echo display('latest_news');?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                            </div>
-
-                            <?php 
-                            for($i=1; $i<=5; $i++){
-                                if (!isset($ln['news_title_'.$i]))
-                                continue; 
-                            ?>
-                                <div class="media latest_post d-flex">
-
-                                    <?php if(@$ln['image_check_' . $i]!=NULL){?>
-                                        <a href="<?php echo html_escape(@$ln['news_link_'.$i]);?>" class="media-left">
-                                            <?php echo @$ln['playbtn_'.$i]?>
-                                            <img class="media-object" src="<?php echo @$ln['image_thumb_' . $i]; ?>" alt="<?php echo html_escape(@$ln['image_alt_'.$i])?>" ></a>
-                                   <?php } else{?>
-                                        <a href="<?php echo html_escape(@$ln['news_link_'.$i]);?>" class="media-left">
-                                            <?php echo @$ln['playbtn_'.$i]?>
-                                            <img class="media-object" src="<?php echo @$ln['default_img_' . $i]; ?>" alt="<?php echo html_escape(@$ln['image_alt_'.$i])?>" ></a>
-                                        </a>
-                                    <?php }?>
-
-                                    <div class="media-body">
-                                        <h6 class="media-heading"><a href="<?php echo html_escape(@$ln['news_link_'.$i]);?>"><?php echo htmlspecialchars_decode(@$ln['news_title_'.$i]);?></a></h6>
-                                        <div class="entry-meta">
-                                            <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$ln['post_date_as_'.$i]);?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php }?>
-                        </div>
-                    </div>
-                </div>
+              </div>
+              <div class="shrink-0 rounded  px-1.5  text-[10px]  text-white flex  items-center">
+                <i class="fa-regular fa-circle-dot"></i>
+                <span>Live</span>
+              </div>
             </div>
 
-            <?php if(@$home_page_positions[4]['status']==1){ ?>
-
-            <div class="news-masonry mt-4">
-                <div class="container container-full-sm">
-                    <div class="row mas-m">
-
-                        <?php for($i=1; $i<=3; $i++){
-                            if (!isset($pn['position_4']['news_title_'.$i]))
-                            continue;
-                        ?>
-                            <div class="col-sm-4 mas-p">
-                                <div class="mas-item text-center mb-4 mb-sm-0">
-
-                                    <?php if(@$pn['position_4']['image_check_'.$i]!=NULL){?>
-                                        <a href="<?php echo html_escape(@$pn['position_4']['news_link_'.$i]); ?>" class="opadow">
-                                            <?php echo @$pn['position_4']['playbtn_'.$i]?>
-                                            <img src="<?php echo html_escape(@$pn['position_4']['image_large_'.$i]); ?>" class="img-fluid full-width-xs homecat_img" alt="<?php echo html_escape(@$pn['position_4']['image_alt_'.$i])?>">
-                                        </a>
-                                    <?php } else{?>
-                                        <a href="<?php echo html_escape(@$pn['position_4']['news_link_'.$i]); ?>">
-                                            <img src="<?php echo html_escape(@$pn['position_4']['default_img_'.$i]); ?>" class="img-fluid full-width-xs homecat_img" alt="<?php echo html_escape(@$pn['position_4']['image_alt_'.$i])?>">
-                                        </a>
-                                    <?php } ?>
-
-                                
-                                    <div class="mas-text">
-                                        <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_4']['category_link_'.$i]); ?>"><?php echo html_escape(@$pn['position_4']['category_name_'.$i]); ?></a></div>
-                                        <h5 class="mas-title"><a href="<?php echo html_escape(@$pn['position_4']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_4']['news_title_'.$i]); ?></a></h5>
-                                        <a href="<?php echo html_escape(@$pn['position_4']['news_link_'.$i]); ?>" class="read-more"><?php echo display('read_more')?> &#8702;</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        <?php } ?>
-                    </div>
+            <div class="my-5  gap-2 lg:gap-4 ">
+              <div class="shrink-0 flex justify-between my-4 items-center gap-3">
+                <div class="flex justify-start items-center">
+                  <img src="<?php echo $ascurl?>/images/global/srilanka-flag.png" alt="Srilanka flag"
+                    class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full" />
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI</h6>
                 </div>
-            </div>
-            <?php } ?>
 
+                <div>
 
-
-
-            <div class="container">
-
-                <div class="row mt-4">
-                    <div class="col-xl-9 col-lg-8 content-4">
-                        
-
-                        <div class="row">
-
-                            <?php if(@$home_page_positions[5]['status']==1){ ?>
-
-                            <div class="col-lg-6">
-
-                                <div class="sec-block mb-4">
-                                    <a href="<?php echo base_url('category/').$pn['position_5']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[5]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                    <div class="btn-part">
-                                        <a href="<?php echo base_url('category/').$pn['position_5']['category_1']?>" class="btn-more"><?php echo display('read_more')?></a>
-                                    </div>
-                                </div>
-
-                                <article class="grid_post grid_post_lg text-xs-center">
-                                    <figure>
-
-                                        <?php if(@$pn['position_5']['image_check_1']!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_5']['news_link_1']); ?>" class="grid_image">
-                                                <?php echo @$pn['position_5']['playbtn_1']?>
-                                                <img src="<?php echo html_escape(@$pn['position_5']['image_large_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_5']['image_alt_1'])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_5']['news_link_1']); ?>" class="grid_image">
-                                                <img src="<?php echo html_escape(@$pn['position_5']['default_img_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_5']['image_alt_1'])?>">
-                                            </a>
-                                        <?php } ?>  
-
-
-                                        <figcaption>
-                                            <div class="vh_center">
-                                                <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_5']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_5']['category_name_1']); ?></a></div>
-                                                <div class="entry-meta">
-                                                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_5']['post_date_as_1']); ?></span>
-                                                </div>
-                                            </div>
-                                            <h5 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_5']['news_link_1']); ?>" class="line_height_25"><?php echo htmlspecialchars_decode(@$pn['position_5']['news_title_1']); ?></a></h5>
-                                            <?php echo ($pn['position_5']['short_news_1']);?>
-                                            <!-- /.Post button -->
-                                        </figcaption>
-                                    </figure>
-
-                                </article>
-
-                                <?php for($i=2; $i<=4; $i++){
-                                    if (!isset($pn['position_5']['news_title_'.$i]))
-                                    continue;
-                                ?>
-
-                                    <div class="media meida-md d-flex">
-                                        <div class="media-left">
-                                            <?php if(@$pn['position_5']['image_check_'.$i]!=NULL){?>
-                                                <a href="<?php echo html_escape(@$pn['position_5']['news_link_'.$i]); ?>" class="grid_image">
-                                                    <?php echo @$pn['position_5']['playbtn_'.$i]?>
-                                                    <img src="<?php echo html_escape(@$pn['position_5']['image_large_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_5']['image_alt_'.$i])?>">
-                                                </a>
-                                            <?php } else{?>
-                                                <a href="<?php echo html_escape(@$pn['position_5']['news_link_'.$i]); ?>" class="grid_image">
-                                                    <?php echo @$pn['position_5']['playbtn_'.$i]?>
-                                                    <img src="<?php echo html_escape(@$pn['position_5']['default_img_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_5']['image_alt_'.$i])?>">
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                        <!-- /.Post image -->
-                                        <div class="media-body">
-                                            <div class="post-header">
-                                                <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_5']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_5']['news_title_'.$i]); ?></a></h3>
-                                                <div class="entry-meta">
-                                                    <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_5']['post_date_as_'.$i]); ?></span>
-                                                </div>
-                                                <!-- /.Post meta -->
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                <?php }?>
-
-                            </div>
-
-                            <?php } ?>
-
-
-                            <?php if(@$home_page_positions[6]['status']==1){ ?>
-
-                                <div class="col-lg-6">
-                                    <div class="sec-block mb-4">
-                                        <a href="<?php echo base_url('category/').$pn['position_6']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[6]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                        <div class="btn-part">
-                                            <a href="<?php echo base_url('category/').$pn['position_6']['category_1']?>" class="btn-more"><?php echo display('read_more')?></a>
-                                        </div>
-                                    </div>
-
-                                    <article class="grid_post grid_post_lg text-xs-center">
-                                        <figure>
-
-                                            <?php if(@$pn['position_6']['image_check_1']!=NULL){?>
-                                                <a href="<?php echo html_escape(@$pn['position_6']['news_link_1']); ?>" class="grid_image">
-                                                    <?php echo @$pn['position_6']['playbtn_6']?>
-                                                    <img src="<?php echo html_escape(@$pn['position_6']['image_large_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_6']['image_alt_1'])?>">
-                                                </a>
-                                            <?php } else{?>
-                                                <a href="<?php echo html_escape(@$pn['position_6']['news_link_1']); ?>" class="grid_image">
-                                                    <?php echo @$pn['position_6']['playbtn_6']?>
-                                                    <img src="<?php echo html_escape(@$pn['position_6']['default_img_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_6']['image_alt_1'])?>">
-                                                </a>
-                                            <?php } ?>  
-
-
-                                            <figcaption>
-                                                <div class="vh_center">
-                                                    <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_6']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_6']['category_name_1']); ?></a></div>
-                                                    <div class="entry-meta">
-                                                        <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_6']['post_date_as_1']); ?></span>
-                                                    </div>
-                                                </div>
-                                                <h5 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_6']['news_link_1']); ?>" class="line_height_25"><?php echo htmlspecialchars_decode(@$pn['position_6']['news_title_1']); ?></a></h5>
-                                                <?php echo ($pn['position_6']['short_news_1']);?>
-                                                <!-- /.Post button -->
-                                            </figcaption>
-
-                                        </figure>
-
-                                    </article>
-
-                                    <?php for($i=2; $i<=4; $i++){
-                                        if (!isset($pn['position_6']['news_title_'.$i]))
-                                        continue;
-                                    ?>
-
-                                        <div class="media meida-md d-flex">
-                                            <div class="media-left">
-                                                <?php if(@$pn['position_6']['image_check_'.$i]!=NULL){?>
-                                                    <a href="<?php echo html_escape(@$pn['position_6']['news_link_'.$i]); ?>" class="grid_image">
-                                                        <?php echo @$pn['position_6']['playbtn_'.$i]?>
-                                                        <img src="<?php echo html_escape(@$pn['position_6']['image_large_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_6']['image_alt_'.$i])?>">
-                                                    </a>
-                                                <?php } else{?>
-                                                    <a href="<?php echo html_escape(@$pn['position_6']['news_link_'.$i]); ?>" class="grid_image">
-                                                        <?php echo @$pn['position_6']['playbtn_'.$i]?>
-                                                        <img src="<?php echo html_escape(@$pn['position_6']['default_img_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_6']['image_alt_'.$i])?>">
-                                                    </a>
-                                                <?php } ?>
-                                            </div>
-
-                                            <!-- /.Post image -->
-                                            <div class="media-body">
-                                                <div class="post-header">
-                                                    <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_6']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_6']['news_title_'.$i]); ?></a></h3>
-                                                    <div class="entry-meta">
-                                                        <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_6']['post_date_as_'.$i]); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    <?php }?>
-                                </div>
-
-                            <?php } ?>
-
-                        </div>
-                        
-
-                        <?php if(@$home_page_positions[7]['status']==1){ ?>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="sec-block mb-4">
-                                        <a href="<?php echo base_url('category/').$pn['position_7']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[7]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                        <div class="btn-part">
-                                            <a href="<?php echo base_url('category/').$pn['position_7']['category_1']?>" class="btn-more"><?php echo display('read_more')?></a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <?php for($i=1; $i<=9; $i++){
-                                    if (!isset($pn['position_7']['news_title_'.$i]))
-                                    continue;
-                                ?>
-
-                                    <div class="col-xl-4 col-lg-6 col-md-4 col-sm-6">
-                                        <article class="grid_post grid_post_lg text-xs-center">
-                                            <figure>
-                                                <?php if(@$pn['position_7']['image_check_'.$i]!=NULL){?>
-                                                    <a href="<?php echo html_escape(@$pn['position_7']['news_link_'.$i]); ?>" class="grid_image">
-                                                        <?php echo @$pn['position_7']['playbtn_'.$i]?>
-                                                        <img src="<?php echo html_escape(@$pn['position_7']['image_large_'.$i]); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_7']['image_alt_'.$i])?>">
-                                                    </a>
-                                                <?php } else{?>
-                                                    <a href="<?php echo html_escape(@$pn['position_7']['news_link_'.$i]); ?>" class="grid_image">
-                                                        <?php echo @$pn['position_7']['playbtn_'.$i]?>
-                                                        <img src="<?php echo html_escape(@$pn['position_7']['default_img_'.$i]); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_7']['image_alt_'.$i])?>">
-                                                    </a>
-                                                <?php } ?>
-
-                                                <figcaption>
-                                                    <div class="vh_center">
-                                                        <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_7']['category_link_'.$i]); ?>"><?php echo html_escape(@$pn['position_7']['category_name_'.$i]); ?></a></div>
-                                                        <div class="entry-meta">
-                                                            <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i></i><?php echo html_escape(@$pn['position_7']['post_date_as_'.$i]); ?></span>
-                                                        </div>
-                                                    </div>
-                                                    <h6 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_7']['news_link_'.$i]); ?>" class="line_height_22"><?php echo html_escape(@$pn['position_7']['news_name_'.$i]); ?></a></h6>
-                                                    <!-- /.Post button -->
-                                                </figcaption>
-                                            </figure>
-                                        </article>
-                                    </div>
-                                <?php }?>
-                                
-                            </div>
-                        <?php } ?>
-
-                    </div>
-
-
-                    <div class="col-xl-3 col-lg-4 rightSidebar show-lg">
-
-                        <?php 
-                            $this->load->view('themes/' . $default_theme . '/components/__most_read');
-                        ?>
-                        
-                        <?php 
-                            $this->load->view('themes/' . $default_theme . '/components/__calender');
-                        ?>
-
-                        <?php 
-                            $this->load->view('themes/' . $default_theme . '/components/__site_category');
-                        ?>
-                        
-                    </div>
-
+                  <p class="mt-.5 text-xs  text-white ">169/7 (41.4)</p>
                 </div>
+              </div>
+
+
+
+              <div class="shrink-0 flex justify-between items-center gap-3">
+                <div class="flex justify-start items-center">
+                  <img src="<?php echo $ascurl?>/images/global/zim-flag.png" alt="Srilanka flag"
+                    class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full" />
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">Zim</h6>
+                </div>
+
+                <div>
+
+                  <p class="mt-.5 text-xs  text-white ">169/7 (41.4)</p>
+                </div>
+              </div>
             </div>
+
+            <p class="text-[10px] lg:text-[11px] leading-[15px] text-primary">
+              Sri Lanka need 40 runs in 50 balls at 4.8 rpo
+            </p>
+          </div>
+
+          <div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
+            <div class="flex justify-between items-start gap-2">
+              <div>
+                <h4 class="text-[10px] lg:text-[11px] leading-[14px] text-white">
+                  Test 3 of 5(tied 1:1) Day 3 Session 1
+                </h4>
+
+              </div>
+              <div class="shrink-0 rounded  px-1.5  text-[10px]  text-white flex  items-center">
+                <i class="fa-regular fa-circle-dot"></i>
+                <span>Live</span>
+              </div>
+            </div>
+
+            <div class="my-5  gap-2 lg:gap-4 ">
+              <div class="shrink-0 flex justify-between my-4 items-center gap-3">
+                <div class="flex justify-start items-center">
+                  <img src="<?php echo $ascurl?>/images/global/srilanka-flag.png" alt="Srilanka flag"
+                    class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full" />
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI</h6>
+                </div>
+
+                <div>
+
+                  <p class="mt-.5 text-xs  text-white ">169/7 (41.4)</p>
+                </div>
+              </div>
+
+
+
+              <div class="shrink-0 flex justify-between items-center gap-3">
+                <div class="flex justify-start items-center">
+                  <img src="<?php echo $ascurl?>/images/global/zim-flag.png" alt="Srilanka flag"
+                    class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full" />
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">Zim</h6>
+                </div>
+
+                <div>
+
+                  <p class="mt-.5 text-xs  text-white ">169/7 (41.4)</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-[10px] lg:text-[11px] leading-[15px] text-primary">
+              Sri Lanka need 40 runs in 50 balls at 4.8 rpo
+            </p>
+          </div>
+
+
+        </div>
+        <!--<div class="progress-bar-container mt-4 hidden lg:block">-->
+        <!--  <div class="progress-bar" style="width: 0"></div>-->
+        <!--</div>-->
+      </div>
+    </section>
+
+    <!-- Advertisement -->
+    <section class="px-7 lg:px-0">
+      <div class="custom-container">
+        <div class="rounded-xl h-[90px] grid place-content-center text-center">
+          <a href="http://"><img width="100%" src="<?php echo $ascurl?>ploads/Advertizement/0ab0d3e1768795bbd1a4895c6187bdaa.png"
+              alt=""></a>
+        </div>
+      </div>
+    </section>
+
+   
+
+
+    <!-- Cricket -->
+    <section class="section-padding">
+      <div class="custom-container">
+        <h1 class="mb-5 section-heading">ক্রিকেট</h1>
+
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+          <div class="lg:w-[66%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/2023-11-19T172113Z_983293843_UP1EJBJ1C7AXN_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1703363199.webp"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+
+          <div class="lg:w-[33%] space-y-1 lg:space-y-1 border rounded">
+
+            <div class="mt-4 pl-4 space-y-0">
+              <h1 class="text-lg font-bold text-blue-800">সর্বশেষ সংবাদ</h1>
+            </div>
+            <hr>
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">১</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-2">
+              </div>
+            </div>
+
+
+
+
+
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">২</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-1">
+              </div>
+            </div>
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৩</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-1">
+              </div>
+            </div>
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৪</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Criket section -->
+    <section>
+      <div class="custom-container">
+        <!-- <h1 class="mb-5 section-heading">Football</h1> -->
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+
+          <div class="lg:w-[33%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/2023-11-19T172113Z_983293843_UP1EJBJ1C7AXN_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1703363199.webp"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="lg:w-[33%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+
+              <div class="absolute inset-0 bg-blue-900 flex items-center justify-center">
+                <h2 class=" text-center text-white">Adds</h2>
+              </div>
+
+            </article>
+          </div>
+
+
+          <div class="lg:w-[33%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/2023-11-19T172113Z_983293843_UP1EJBJ1C7AXN_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1703363199.webp"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- <div class="lg:w-[66%] space-y-4">
+            <div class="flex flex-col lg:flex-row gap-6">
+              <div class="space-y-4">
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div> -->
+
+
         </div>
 
-        <div class="page-content">
-            <div class="container">
-                <div class="row mt-4">
-
-                    <?php if(@$home_page_positions[8]['status']==1){ ?>
-
-                        <div class="col-lg-4">
-                            <div class="sec-block mb-4">
-                                <a href="<?php echo base_url('category/').$pn['position_8']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[8]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <div class="btn-part">
-                                    <a href="<?php echo base_url('category/').$pn['position_8']['category_1']?>" class="btn-more"><?php echo display('read_more');?></a>
-                                </div>
-                            </div>
-
-                            <article class="grid_post grid_post_lg text-xs-center">
-                                <figure>
-                                    <?php if(@$pn['position_8']['image_check_1']!=NULL){?>
-                                        <a href="<?php echo html_escape(@$pn['position_8']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_8']['playbtn_1']?>
-                                            <img src="<?php echo html_escape(@$pn['position_8']['image_large_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_8']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } else{?>
-                                        <a href="<?php echo html_escape(@$pn['position_8']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_8']['playbtn_1']?>
-                                            <img src="<?php echo html_escape(@$pn['position_8']['default_img_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_8']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } ?>  
-
-
-                                    <figcaption>
-                                        <div class="vh_center">
-                                            <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_8']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_8']['category_name_1']); ?></a></div>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_8']['post_date_as_1']); ?></span>
-                                            </div>
-                                        </div>
-                                        <h5 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_8']['news_link_1']); ?>" class="line_height_25"><?php echo htmlspecialchars_decode(@$pn['position_8']['news_title_1']); ?></a></h5>
-                                        <?php echo ($pn['position_8']['short_news_1']);?>
-                                        <!-- /.Post button -->
-                                    </figcaption>
-                                </figure>
-                            </article>
-
-
-                            <?php for($i=2; $i<=4; $i++){
-                                if (!isset($pn['position_8']['news_title_'.$i]))
-                                continue;
-                            ?>
-
-                                <div class="media meida-md d-flex">
-                                    <div class="media-left">
-                                        <?php if(@$pn['position_8']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_8']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_8']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_8']['image_large_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_8']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_8']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_8']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_8']['default_img_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_8']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-                                    <!-- /.Post image -->
-                                    <div class="media-body">
-                                        <div class="post-header">
-                                            <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_8']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_8']['news_title_'.$i]); ?></a></h3>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_8']['post_date_as_'.$i]); ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <?php }?>
-
-                        </div>
-
-                    <?php }?>
-
-
-
-                    <?php if(@$home_page_positions[9]['status']==1){ ?>
-
-                        <div class="col-lg-4">
-                            <div class="sec-block mb-4">
-                                <a href="<?php echo base_url('category/').$pn['position_9']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[9]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <div class="btn-part">
-                                    <a href="<?php echo base_url('category/').$pn['position_9']['category_1']?>" class="btn-more"><?php echo display('read_more');?></a>
-                                </div>
-                            </div>
-
-                            <article class="grid_post grid_post_lg text-xs-center">
-
-                                <figure>
-
-                                    <?php if(@$pn['position_9']['image_check_1']!=NULL){?>
-                                        <a href="<?php echo html_escape(@$pn['position_9']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_9']['playbtn_1']?>
-                                            <img src="<?php echo html_escape(@$pn['position_9']['image_large_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_9']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } else{?>
-                                        <a href="<?php echo html_escape(@$pn['position_9']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_9']['playbtn_'.$i]?>
-                                            <img src="<?php echo html_escape(@$pn['position_9']['default_img_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_9']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } ?>  
-
-
-                                    <figcaption>
-                                        <div class="vh_center">
-                                            <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_9']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_9']['category_name_1']); ?></a></div>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_9']['post_date_as_1']); ?></span>
-                                            </div>
-                                        </div>
-                                        <h5 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_9']['news_link_1']); ?>" class="line_height_25"><?php echo htmlspecialchars_decode(@$pn['position_9']['news_title_1']); ?></a></h5>
-                                        <?php echo ($pn['position_9']['short_news_1']);?>
-                                        <!-- /.Post button -->
-                                    </figcaption>
-
-                                </figure>
-
-                            </article>
-
-
-                            <?php for($i=2; $i<=4; $i++){
-                                if (!isset($pn['position_9']['news_title_'.$i]))
-                                continue;
-                            ?>
-
-                                <div class="media meida-md d-flex">
-                                    <div class="media-left">
-                                        <?php if(@$pn['position_9']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_9']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_9']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_9']['image_large_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_9']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_9']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_9']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_9']['default_img_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_9']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-                                    <!-- /.Post image -->
-                                    <div class="media-body">
-                                        <div class="post-header">
-                                            <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_9']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_9']['news_title_'.$i]); ?></a></h3>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_9']['post_date_as_'.$i]); ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <?php }?>
-
-                        </div>
-
-                    <?php }?>
-
-
-                    <?php if(@$home_page_positions[10]['status']==1){ ?>
-
-                        <div class="col-lg-4">
-                            <div class="sec-block mb-4">
-                                <a href="<?php echo base_url('category/').$pn['position_10']['category_1']?>" class="sec-title"><?php echo html_escape($home_page_positions[10]['cat_name']);?> <i class="fa fa-caret-right" aria-hidden="true"></i></a>
-                                <div class="btn-part">
-                                    <a href="<?php echo base_url('category/').$pn['position_10']['category_1']?>" class="btn-more"><?php echo display('read_more');?></a>
-                                </div>
-                            </div>
-
-                            <article class="grid_post grid_post_lg text-xs-center">
-                                <figure>
-                                    <?php if(@$pn['position_10']['image_check_1']!=NULL){?>
-                                        <a href="<?php echo html_escape(@$pn['position_10']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_10']['playbtn_1']?>
-                                            <img src="<?php echo html_escape(@$pn['position_10']['image_large_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_10']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } else{?>
-                                        <a href="<?php echo html_escape(@$pn['position_10']['news_link_1']); ?>" class="grid_image">
-                                            <?php echo @$pn['position_10']['playbtn_'.$i]?>
-                                            <img src="<?php echo html_escape(@$pn['position_10']['default_img_1']); ?>" class="img-fluid full-width-md" alt="<?php echo html_escape(@$pn['position_10']['image_alt_1'])?>">
-                                        </a>
-                                    <?php } ?>  
-
-
-                                    <figcaption>
-                                        <div class="vh_center">
-                                            <div class="post-cat"><a href="<?php echo html_escape(@$pn['position_10']['category_link_1']); ?>"><?php echo html_escape(@$pn['position_10']['category_name_1']); ?></a></div>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_10']['post_date_as_1']); ?></span>
-                                            </div>
-                                        </div>
-                                        <h5 class="grid_post_title"><a href="<?php echo html_escape(@$pn['position_10']['news_link_1']); ?>" class="line_height_25"><?php echo htmlspecialchars_decode(@$pn['position_10']['news_title_1']); ?></a></h5>
-                                        <?php echo ($pn['position_10']['short_news_1']);?>
-                                        <!-- /.Post button -->
-                                    </figcaption>
-
-                                </figure>
-
-                            </article>
-
-
-                            <?php for($i=2; $i<=4; $i++){
-                                if (!isset($pn['position_10']['news_title_'.$i]))
-                                continue;
-                            ?>
-
-                                <div class="media meida-md d-flex">
-
-                                    <div class="media-left">
-                                        <?php if(@$pn['position_10']['image_check_'.$i]!=NULL){?>
-                                            <a href="<?php echo html_escape(@$pn['position_10']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_10']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_10']['image_large_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_10']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } else{?>
-                                            <a href="<?php echo html_escape(@$pn['position_10']['news_link_'.$i]); ?>" class="grid_image">
-                                                <?php echo @$pn['position_10']['playbtn_'.$i]?>
-                                                <img src="<?php echo html_escape(@$pn['position_10']['default_img_'.$i]); ?>" class="media-object width-60-lg" alt="<?php echo html_escape(@$pn['position_10']['image_alt_'.$i])?>">
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-
-                                    <!-- /.Post image -->
-                                    <div class="media-body">
-                                        <div class="post-header">
-                                            <h3 class="media-heading"><a href="<?php echo html_escape(@$pn['position_10']['news_link_'.$i]); ?>"><?php echo htmlspecialchars_decode(@$pn['position_10']['news_title_'.$i]); ?></a></h3>
-                                            <div class="entry-meta">
-                                                <span class="entry-date"><i class="fa fa-calendar-o" aria-hidden="true"></i><?php echo html_escape(@$pn['position_10']['post_date_as_'.$i]); ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            <?php }?>
-
-                        </div>
-
-                    <?php }?>
-
-
+        <!-- <div class="space-y-4">
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+
+
+      </div>
+      
+
+
+
+
+
+     
+    </section>
+
+
+
+    <!-- Football -->
+    <section class="section-padding">
+      <div class="custom-container">
+        <h1 class="mb-5 section-heading">ফুটবল</h1>
+
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+          <div class="lg:w-[66%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+
+          <div class="lg:w-[33%] space-y-1 lg:space-y-1 border rounded">
+
+            <div class="mt-4 pl-4 space-y-0">
+              <h1 class="text-lg font-bold text-blue-800">সর্বশেষ সংবাদ</h1>
             </div>
+            <hr>
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">১</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/football_details.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-2">
+              </div>
+            </div>
+
+
+
+
+
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">২</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/details_page.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-1">
+              </div>
+            </div>
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৩</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/football_details.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+                <hr class="mt-1">
+              </div>
+            </div>
+
+            <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+              <div class="">
+                <span
+                  class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৪</span>
+              </div>
+              <div class="news-card-small-content px-3 py-0">
+                <h4 class="news-small-heading text-sm font-extrabold">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">বাংলাদেশের
+                    ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                </h4>
+                <div class="flex justify-between items-center  text-slate-400">
+                  <span class=" text-sm ">১২ মিনিট আগে</span>
+                </div>
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Football -->
+    <section class="mb-6">
+      
+      <div class="custom-container">
+        <!-- <h1 class="mb-5 section-heading">Football</h1> -->
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+
+          <div class="lg:w-[33%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+         
+
+
+          <div class="lg:w-[32%]">
+            <article
+              class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
+              <img
+                src="<?php echo $ascurl?>/uploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
+              <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
+                চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+              <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
+                <p>১৫ মিনিট আগে</p>
+              </div>
+            </article>
+          </div>
+
+          <!-- <div class="lg:w-[66%] space-y-4">
+            <div class="flex flex-col lg:flex-row gap-6">
+              <div class="space-y-4">
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div> -->
+
+
         </div>
 
+        <!-- <div class="space-y-4">
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="news-card-small">
+                  <div class="small-img">
+                    <img src="<?php echo $ascurl?>ploads/image-5.png" alt="poster" />
+                  </div>
+                  <div class="news-card-small-content px-3 py-4">
+                    <h4 class="news-small-heading">
+                      <a
+                        href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                        Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                    </h4>
+                    <div class="flex justify-between items-center">
+                      <p class="news-tag">News</p>
+                      <a
+                        onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                        <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+
+
+      </div>
+    </section>
+
+
+
+
+    <!-- Advertisement -->
+    <section class="px-7 lg:px-0">
+      <div class="custom-container">
+        <div class="rounded-xl h-[90px] grid place-content-center text-center">
+          <h4 class="text-primary text-xl font-semibold"><a href="http://"><img width="100%"
+                src="<?php echo $ascurl?>/uploads/Advertizement/0ab0d3e1768795bbd1a4895c6187bdaa.png" alt=""></a></h4>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="mb-3 mt-3">
+      <div class="custom-container">
+        <h1 class="mb-5 section-heading">Popular Games</h1>
+
+        <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+          <div class="lg:w-[66%]">
+            <div class="">
+              <div class="big-img ">
+                <img src="<?php echo $ascurl?>/uploads/game-1.png " alt="poster" class="h-full w-full rounded-t-xl" />
+              </div>
+              <div class="px-3 py-4">
+
+                </a>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="lg:w-[33%]">
+            <div class="news-card-big">
+              <div class="big-img ">
+                <img src="<?php echo $ascurl?>/uploads/game-2.png" alt="poster" class="h-full w-full rounded-t-xl" />
+              </div>
+              <!-- <div class="px-3 py-4">
+                <h4 class="news-big-heading">
+                  <a
+                    href="news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html">Underdog
+                    Triumphs in Stunning Upset, Rewriting the Script in Unforgettable Football Matchup</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">News</p>
+                  <a
+                    onclick="shareContent('Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup','news-details/football/Underdog-Triumphs-in-Stunning-Upset--Rewriting-the-Script-in-Unforgettable-Football-Matchup.html')">
+                    <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                  </a>
+                </div>
+              </div> -->
+            </div>
+          </div>
+
+
+          <!-- <div class="lg:w-[33%] space-y-4 lg:space-y-9 border redious">
+
+            <div class="mt-8 pl-4">
+              <h1 class="text-7xl font-bold"> Latest news</h1> 
+            </div>
+
+            <div class="news-card-small">
+              <div class="small-img">
+                <img
+                      src="<?php echo $ascurl?>ploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                      alt="poster"
+                    />
+              </div>
+              <div class="news-card-small-content px-3 py-4">
+                <h4 class="news-small-heading">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">'Shocked'
+                    Pogba vows to fight 'incorrect' four-year doping ban</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">20/03/2024</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+
+
+
+            <div class="news-card-small">
+              <div class="small-img">
+                <img src="<?php echo $ascurl?>ploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                  alt="poster" />
+              </div>
+              <div class="news-card-small-content px-3 py-4">
+                <h4 class="news-small-heading">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">'Shocked'
+                    Pogba vows to fight 'incorrect' four-year doping ban</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">20/03/2024</p>
+                </div>
+              </div>
+            </div>
+            <div class="news-card-small">
+              <div class="small-img">
+                    <img
+                      src="<?php echo $ascurl?>ploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                      alt="poster"
+                    />
+                  </div>
+              <div class="news-card-small-content px-3 py-4">
+                <h4 class="news-small-heading">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">'Shocked'
+                    Pogba vows to fight 'incorrect' four-year doping ban</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">20/03/2024</p>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="news-card-small">
+              <div class="small-img">
+                <img src="<?php echo $ascurl?>ploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                  alt="poster" />
+              </div>
+              <div class="news-card-small-content px-3 py-4">
+                <h4 class="news-small-heading">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">'Shocked'
+                    Pogba vows to fight 'incorrect' four-year doping ban</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">20/03/2024</p>
+                </div>
+              </div>
+            </div>
+
+
+                    
+            <div class="news-card-small">
+               <div class="small-img">
+                <img src="<?php echo $ascurl?>ploads/depositphotos_604478050-stock-photo-harry-kane-tottenham-hotspur-looks.jpg"
+                  alt="poster" /> 
+              </div> 
+              <div class="news-card-small-content px-3 py-4">
+                <h4 class="news-small-heading">
+                  <a
+                    href="./pages/India-v-Bangladesh---ICC-Men-s-T20-World-Cup.html">'Shocked'
+                    Pogba vows to fight 'incorrect' four-year doping ban</a>
+                </h4>
+                <div class="flex justify-between items-center">
+                  <p class="news-tag">20/03/2024</p>
+                </div>
+              </div>
+            </div> -->
+
+        </div>
+
+
+
+
+
+
+
+      </div>
+      </div>
+    </section>
+
+    <!-- Kabaddi section -->
+    <section class="mb-4 ">
+      <div class="custom-container">
+        <!-- <h1 class="mb-5 section-heading">Kabaddi</h1> -->
+        <div class="grid lg:grid-cols-3 gap-4 lg:gap-6">
+          <div class="">
+            <div class="big-img ">
+              <img src="<?php echo $ascurl?>/uploads/game-3.png" alt="poster" class="h-full w-full rounded-t-xl" />
+            </div>
+            <!-- <div class="px-3 py-4">
+              <h4 class="news-big-heading">
+                <a href="news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html">Palani
+                  Tuskers Clinch Yuva Kabaddi Series Winter Edition</a>
+              </h4>
+              <div class="flex justify-between items-center">
+                <p class="news-tag">News</p>
+                <a
+                  onclick="shareContent('Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html')">
+                  <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                </a>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="">
+            <div class="big-img">
+              <img src="<?php echo $ascurl?>/uploads/game-4.png" alt="poster" class="h-full w-full rounded-t-xl" />
+            </div>
+            <!-- <div class="px-3 py-4">
+              <h4 class="news-big-heading">
+                <a href="news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html">Palani
+                  Tuskers Clinch Yuva Kabaddi Series Winter Edition</a>
+              </h4>
+              <div class="flex justify-between items-center">
+                <p class="news-tag">News</p>
+                <a
+                  onclick="shareContent('Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html')">
+                  <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                </a>
+              </div>
+            </div> -->
+          </div>
+
+          <div class="news-card-big">
+            <div class="big-img ">
+              <img src="<?php echo $ascurl?>/uploads/game-5.png" alt="poster" class="h-full w-full rounded-t-xl" />
+            </div>
+            <!-- <div class="px-3 py-4">
+              <h4 class="news-big-heading">
+                <a href="news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html">Palani
+                  Tuskers Clinch Yuva Kabaddi Series Winter Edition</a>
+              </h4>
+              <div class="flex justify-between items-center">
+                <p class="news-tag">News</p>
+                <a
+                  onclick="shareContent('Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition','news-details/kabadi/Palani-Tuskers-Clinch-Yuva-Kabaddi-Series-Winter-Edition.html')">
+                  <img src="<?php echo $ascurl?>/images/global/share.png" alt="share icon" />
+                </a>
+              </div>
+            </div> -->
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+  </main>
+
+     <!-- <script>
+    $(document).ready(function () {
+
+      function cricketApi(value = "cricket", api_key = "bceef824f4c10d86c261825f0900a5c2bc25fbe10af2f123849c08e5a9b13397") {
+        console.log(value);
+        // document.addEventListener('DOMContentLoaded', function() {
+        const apiUrl = `https://apiv2.allsportsapi.com/${value}/?met=Livescore&APIkey=${api_key}`; // Replace with your API URL
+
+        // Fetch data from the API
+        fetch(apiUrl)
+          .then(response => {
+            // Check if the response is successful
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            // Parse JSON data from the response
+            return response.json();
+          })
+          .then(data => {
+            // Append data to HTML
+            // const container = document.getElementById('match_list');
+            var allMatch = data.result;
+            //console.log(allMatch);
+
+            //data.forEach(allMatch => {
+            //     const div = document.createElement('div');
+            // div.textContent = item.title;
+            // container.appendChild(div);
+            //});
+
+            var html = '';
+            for (var i = 0; i < allMatch.length; i++) {
+
+              if (value == 'cricket') {
+                var league_name = allMatch[i].league_name;
+                var event_home_team = allMatch[i].event_home_team;
+                var event_home_team_logo = allMatch[i].event_home_team_logo;
+                var event_away_team = allMatch[i].event_away_team;
+                var event_away_team_logo = allMatch[i].event_away_team_logo;
+                var event_date_start = allMatch[i].event_date_start;
+                var event_date_stop = allMatch[i].event_date_stop;
+                var event_status_info = allMatch[i].event_status_info;
+                var event_toss = allMatch[i].event_toss;
+                var event_home_final_result = allMatch[i].event_home_final_result;
+                var event_away_final_result = allMatch[i].event_away_final_result;
+
+                if (event_home_final_result == '') {
+                  event_home_final_result = '--';
+                }
+                if (event_away_final_result == '') {
+                  event_away_final_result = '--';
+                }
+                if (event_date_start == event_date_stop) {
+                  var event_date = event_date_start
+                } else {
+                  var event_date = event_date_start + '-' + event_date_stop;
+                }
+              }
+              if (value == 'football') {
+                var league_name = allMatch[i].league_name;
+                var event_home_team = allMatch[i].event_home_team;
+                var event_home_team_logo = allMatch[i].home_team_logo;
+                var event_away_team = allMatch[i].event_away_team;
+                var event_away_team_logo = allMatch[i].away_team_logo;
+                var event_date = allMatch[i].event_date;
+                var event_status_info = 'Final Result: ' + allMatch[i].event_final_result;
+                var event_toss = allMatch[i].event_toss;
+                var event_home_final_result = allMatch[i].event_home_final_result ? allMatch[i].event_home_final_result : '';
+                var event_away_final_result = allMatch[i].event_away_final_result ? allMatch[i].event_away_final_result : '';
+
+                if (event_home_final_result == '') {
+                  event_home_final_result = '--';
+                }
+                if (event_away_final_result == '') {
+                  event_away_final_result = '--';
+                }
+              }
+
+              html += `<div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
+                  <div class="flex justify-between items-start gap-2">
+                    <div>
+                      <h4 class="text-[10px] lg:text-[11px] leading-[14px] text-white">
+                      ${league_name}
+                      </h4>
+                      <p class="mt-.5 text-[10px] lg:text-[11px] leading-[11px] text-white font-semibold">${event_date}</p>
+                    </div>
+                    <div
+                      class="shrink-0 rounded py-1 px-1.5 bg-primary/25 text-[10px] text-primary flex gap-1.5 items-center"
+                    >
+                      <i class="fa-regular fa-circle-dot"></i>
+                      <span>Live</span>
+                    </div>
+                  </div>
+
+                  <div class="my-5 flex justify-between items-start gap-2 lg:gap-4">
+                    <div class="shrink-0 flex items-center gap-3">
+                      <img src="${event_home_team_logo}" class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full"/>
+                      <div>
+                        <h6 class="text-[10px] lg:text-[11px] leading-4 text-[#F1F5F9] uppercase">${event_home_team}</h6>
+                        <p class="mt-.5 text-xs text-white font-semibold">${event_home_final_result}</p>
+                      </div>
+                    </div>
+
+                    <div class="shrink-0 text-primary text-xs lg:text-sm font-medium">VS</div>
+
+                    <div class="shrink-0 flex items-center gap-3">
+                      <img
+                        src="${event_away_team_logo}"
+                        alt="Srilanka flag"
+                        class="w-7 lg:h-7 lg:w-12 lg:h-12 rounded-full"
+                      />
+                      <div>
+                        <h6 class="text-[10px] lg:text-[11px] leading-4 text-[#F1F5F9] uppercase">${event_away_team}</h6>
+                        <p class="mt-.5 text-xs text-white font-semibold">${event_away_final_result}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p class="text-[10px] lg:text-[11px] leading-[15px] text-primary">
+                    ${event_status_info}
+                  </p>
+                </div>`;
+
+              $(".banner-slider").html(html);
+            }
+          })
+          .catch(error => {
+            html = `<div class="min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
+            <div class="flex justify-between items-start gap-2">
+              <div>
+                <h4 class="text-[10px] lg:text-[15px] leading-[18px] font-bold text-white">
+                  Zimbabwe Tour of Sri Lanka, 2024
+                </h4>
+                <p class="lg:mt-1.5 text-[10px] lg:text-sm text-white">2nd ODi | 08 Jan 2024</p>
+              </div>
+              <div
+                class="shrink-0 rounded py-1 px-1.5 bg-primary/25 text-xs lg:text-sm text-primary flex gap-1.5 items-center"
+              >
+                <i class="fa-regular fa-circle-dot"></i>
+                <span>Live</span>
+              </div>
+            </div>
+
+            <div class="my-5 flex justify-between items-start gap-2 lg:gap-4">
+              <div class="shrink-0 flex items-center gap-3">
+                <img
+                  src="./images/global/srilanka-flag.png"
+                  alt="Srilanka flag"
+                  class="w-7 lg:w-auto"
+                />
+                <div>
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI LANKA</h6>
+                  <p class="mt-.5 text-xs lg:text-base text-white font-semibold">169/7 (41.4)</p>
+                </div>
+              </div>
+
+              <div class="shrink-0 text-primary text-xs lg:text-2xl font-medium">VS</div>
+
+              <div class="shrink-0 flex items-center gap-3">
+                <img
+                  src="./images/global/zim-flag.png"
+                  alt="Srilanka flag"
+                  class="w-7 lg:w-auto"
+                />
+                <div>
+                  <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI LANKA</h6>
+                  <p class="mt-.5 text-xs lg:text-base text-white font-semibold">169/7 (41.4)</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-[11px] lg:text-[15px] leading-[18px] text-primary font-semibold">
+              Sri Lanka need 40 runs in 50 balls at 4.8 rpo
+            </p>
+          </div>`;
+
+
+            $(".banner-slider").html(html);
+          });
+        // });
+
+        const scrollport = document.getElementById('scrollport');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        scrollport.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - scrollport.offsetLeft;
+          scrollLeft = scrollport.scrollLeft;
+        });
+
+        scrollport.addEventListener('mouseleave', () => {
+          isDown = false;
+        });
+
+        scrollport.addEventListener('mouseup', () => {
+          isDown = false;
+        });
+
+        scrollport.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - scrollport.offsetLeft;
+          const walk = (x - startX) * 2; // Adjust scrolling speed here
+          scrollport.scrollLeft = scrollLeft - walk;
+        });
+
+      }
+
+      cricketApi();
+
+      // Call the function every 5 seconds
+      intervalId = setInterval(function () {
+        cricketApi();
+      }, 5000);
+
+      $("#games").change(function () {
+        var selectedValue = $(this).val();
+        clearInterval(intervalId);
+        if (selectedValue == 'cricket') {
+          cricketApi(selectedValue, 'bceef824f4c10d86c261825f0900a5c2bc25fbe10af2f123849c08e5a9b13397');
+          intervalId = setInterval(function () {
+            cricketApi(selectedValue, 'bceef824f4c10d86c261825f0900a5c2bc25fbe10af2f123849c08e5a9b13397');
+          }, 5000);
+        }
+        if (selectedValue == 'football') {
+          cricketApi(selectedValue, 'bceef824f4c10d86c261825f0900a5c2bc25fbe10af2f123849c08e5a9b13397');
+          intervalId = setInterval(function () {
+            cricketApi(selectedValue, 'bceef824f4c10d86c261825f0900a5c2bc25fbe10af2f123849c08e5a9b13397');
+          }, 5000);
+        }
+      });
+    });
+
+
+  </script> -->
+</body>
+
+<!-- Mirrored from raudexpress.com/news/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 17 Mar 2024 16:17:42 GMT -->
+
+</html>

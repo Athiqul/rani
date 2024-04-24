@@ -1,26 +1,17 @@
 <!-- <?php 
-    // $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
-    // $bu = base_url();
-    // if (isset($ads) && is_array($ads)) {
-    //     extract($ads);
-    // }
-    // $menu_slug = $this->uri->segment(2);
-    // if(isset($menu_slug)){
-    //     $selected = 'selected';
-    // }else{
-    //     $selecte = 'selected';
-    // }
+     $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
+    
 ?>
 
 <style type="text/css">
     .selected{
         color: #035fa0 !important;
     }
-</style> -->
+</style> 
 
 
 
-<!-- 
+
         <header class="mainHeader">
             <div class="logo-wrapper">
                 <div class="container">
@@ -37,8 +28,8 @@
                                 </div>
 
                                 <div class="header-logo text-start d-block">
-                                    <a href="<?php echo base_url()?>" class="logo-img">
-                                        <img src="<?php echo base_url().html_escape(@$setting->logo)?>" alt="">
+                                    <a href="<?//php echo base_url()?>" class="logo-img">
+                                        <img src="<?//php echo base_url().html_escape(@$setting->logo)?>" alt="">
                                     </a>
                                 </div>
                             
@@ -46,11 +37,11 @@
                         </div>
 
                         <div class="col-md-8 col-6">
-                            <div class="banner_area <?php echo (html_escape(@$lg_status_11)==0?'hidden-lg hidden-md':'')?> 
-                            <?php echo (html_escape(@$sm_status_11)==0?'hidden-xs hidden-sm':'')?>">
+                            <div class="banner_area <?//php echo (html_escape(@$lg_status_11)==0?'hidden-lg hidden-md':'')?> 
+                            <?//php echo (html_escape(@$sm_status_11)==0?'hidden-xs hidden-sm':'')?>">
                                 <?php
-                                    if(isset($home_11) && !empty($home_11))
-                                        echo htmlspecialchars_decode(@$home_11); 
+                                    // if(isset($home_11) && !empty($home_11))
+                                    //     echo htmlspecialchars_decode(@$home_11); 
                                 ?>
                             </div>
 
@@ -185,47 +176,47 @@
                         <div class="collapse navbar-collapse justify-content-between" id="navbarTogglerDemo01">
 
                             <ul class="navbar-nav">
-                                <li class='nav-item'><a class="nav-link" href="<?php echo base_url()?>"><?php echo display('home')?></a></li>
+                                <li class='nav-item'><a class="nav-link" href="<?//php echo base_url()?>"><?//php echo display('home')?></a></li>
 
                     <?php
-                    $i = 2;
-                    foreach (@$main_menu as $key => $value) {
+                    // $i = 2;
+                    // foreach (@$main_menu as $key => $value) {
 
-                        $num_rows1 = $this->db->select('*')->from('menu_content')->where('parents_id',$value->menu_content_id)->order_by('menu_position','ASC')->get()->result();
+                    //     $num_rows1 = $this->db->select('*')->from('menu_content')->where('parents_id',$value->menu_content_id)->order_by('menu_position','ASC')->get()->result();
                     
-                        if($value->slug!=NULL){
-                            $slug1 = $bu.'category/'.$value->slug;
-                        }elseif ($value->link_url!=NULL) {
-                            $slug1 = $value->link_url;
-                        }else{
-                            $slug1 = $bu."#";
-                        }
+                    //     if($value->slug!=NULL){
+                    //         $slug1 = $bu.'category/'.$value->slug;
+                    //     }elseif ($value->link_url!=NULL) {
+                    //         $slug1 = $value->link_url;
+                    //     }else{
+                    //         $slug1 = $bu."#";
+                    //     }
 
-                        if ($num_rows1) {
-                            echo '<li class="nav-item dropdown" >';
-                            echo '<a  href="' . $slug1 . '" class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . $value->menu_lavel . '</a>';
-                            echo '<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
-                            foreach ($num_rows1 as $key1 => $value1) {
-                                if($value1->slug!=NULL){
-                                    $slug2 = $bu.'category/'.$value1->slug;
-                                }elseif ($value1->link_url!=NULL) {
-                                    $slug2 = $value1->link_url;
-                                }else{
-                                    $slug2 = $bu."#";
-                                }
-                                echo' <li class="'.(($value1->slug == $menu_slug) ? @$selected : '').'"><a class="dropdown-item" href="' . $slug2. '/">' . $value1->menu_lavel . '</a></li>';
-                            }
-                            echo '</ul>';
-                        } else {
+                    //     if ($num_rows1) {
+                    //         echo '<li class="nav-item dropdown" >';
+                    //         echo '<a  href="' . $slug1 . '" class="nav-link dropdown-toggle"  id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' . $value->menu_lavel . '</a>';
+                    //         echo '<ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">';
+                    //         foreach ($num_rows1 as $key1 => $value1) {
+                    //             if($value1->slug!=NULL){
+                    //                 $slug2 = $bu.'category/'.$value1->slug;
+                    //             }elseif ($value1->link_url!=NULL) {
+                    //                 $slug2 = $value1->link_url;
+                    //             }else{
+                    //                 $slug2 = $bu."#";
+                    //             }
+                    //             echo' <li class="'.(($value1->slug == $menu_slug) ? @$selected : '').'"><a class="dropdown-item" href="' . $slug2. '/">' . $value1->menu_lavel . '</a></li>';
+                    //         }
+                    //         echo '</ul>';
+                    //     } else {
                             
-                            if(@$value->parents_id>0){
+                    //         if(@$value->parents_id>0){
 
-                            }else{
-                                echo '<li class="nav-item "> <a  href="' . $slug1 . '/" class="nav-link '.(($value->slug == $menu_slug) ? @$selected : '').'">' . html_escape($value->menu_lavel) . '</a>';
-                            }            
-                        }
-                        echo '</li>';
-                    }
+                    //         }else{
+                    //             echo '<li class="nav-item "> <a  href="' . $slug1 . '/" class="nav-link '.(($value->slug == $menu_slug) ? @$selected : '').'">' . html_escape($value->menu_lavel) . '</a>';
+                    //         }            
+                    //     }
+                    //     echo '</li>';
+                    //}
                     ?>
 
 
@@ -237,19 +228,19 @@
                                         <i id="btn-search1" class="icons ti-search"></i>
                                     </button>
                                     <?php
-                                    $fa = array('method' =>'GET' ); 
-                                    echo form_open('search',$fa);?>
+                                    // $fa = array('method' =>'GET' ); 
+                                    // echo form_open('search',$fa);?>
                                     <div class="dropdown-menu search_box_wrapper">
                                         <div class="input-group">
-                                            <input type="text" class="form-control search_input"  placeholder="<?php echo display('search')?>" name="q">
+                                            <input type="text" class="form-control search_input"  placeholder="<?//php echo display('search')?>" name="q">
                                             <div class="input-group-append">
                                                 <button class="btn btn-search d-flex" type="submit">
-                                                    <i id="btn-search2" class="icons ti-search"></i> <?php echo display('search')?>
+                                                    <i id="btn-search2" class="icons ti-search"></i> <?//php echo display('search')?>
                                                 </button>
                                             </div>
                                         </div>
                                     </div>
-                                    <?php echo form_close();?>
+                                    <?//php echo form_close();?>
                                 </li>
                             </ul>
                         </div>
@@ -258,38 +249,43 @@
             </div>
         </header>  -->
 
-        <nav class="navbar navbar-expand-lg navbar-light navbar-custom justify-content-around">
-        <a class="navbar-brand" href="#"><img src="<?= base_url() . '/assets/custom/image/logo.png' ?>" alt="" width="80px" class="mx-auto img-fluid"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <header class="bg-secondary">
+    <div class="custom-container !overflow-visible">
+      <nav class="py-4 flex justify-between items-center gap-3">
+        <ul>
+          <li>
+            <a href="../index.html">
+              <img src="<?php echo $ascurl;?>/images/header/logo.png" alt="sports rani logo" class="w-[168px] lg:w-auto" />
+            </a>
+          </li>
+        </ul>
+        <ul class="primary-menu hidden lg:flex items-center">
+          <li>
+            <a class="active_color" href="index.html">Home</a>
+          </li>
+          <li>
+            <a class="" href="./pages/tips-and-prediction.html">Review & Prediction</a>
+          </li>
+          <li>
+            <a class="" href="/pages/cricket.html">Cricket</a>
+          </li>
+          <li>
+            <a class="" href="./pages/football.html">Football</a>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <a href="./pages/sign-in.html"
+              class="flex items-center gap-2.5 py-2 lg:py-3 px-4 lg:px-6 rounded-[20px] bg-primary">
+              <span class="font-semibold text-[15px] lg:text-base">Sign in</span>
+              <img src="<?php echo $ascurl;?>/images/header/user.png" alt="user icon" class="w-5 lg:w-auto" />
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
 
+    <!-- Only mobile device section -->
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tips & Predictions</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cricket</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Football</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#"><img src="<?= base_url() . '/assets/custom/image/sign_in.png' ?>" alt="" width="80px" class="mx-auto img-fluid"></a>
-                </li>
-
-            </ul>
-        </div>
-
-    </nav>
+  </header>
 

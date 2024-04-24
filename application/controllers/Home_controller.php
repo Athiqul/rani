@@ -63,13 +63,14 @@ class Home_controller extends CI_Controller {
         $data['cat_menus']      = $this->settings->footer_menu();
         $data['footer_menu']    = $this->settings->menu_position_3();
         $data['cat']    = $this->settings->count_post_by_cat();
-
+        
+      
         $this->load->view('themes/' . $default_theme . '/header', $data);
-        $this->load->view('themes/' . $default_theme . '/breaking');
+       
         $this->load->view('themes/' . $default_theme . '/menu');
         $this->load->view('themes/' . $default_theme . '/home_view');
         $this->load->view('themes/' . $default_theme . '/footer');
-       // $this->load->view('custom/test');
+       
 
         $this->output->cache(30); 
        
