@@ -261,21 +261,22 @@
         </ul>
         <ul class="primary-menu hidden lg:flex items-center">
           <li>
-            <a class="active_color" href="index.html">Home</a>
+            <a class="active_color" href="<?php echo base_url('/')?>">Home</a>
           </li>
           <li>
-            <a class="" href="./pages/tips-and-prediction.html">Review & Prediction</a>
+            <a class="" href="<?php echo base_url('tips/prediction')?>">Review & Prediction</a>
           </li>
           <li>
-            <a class="" href="/pages/cricket.html">Cricket</a>
+            <a class="" href="<?php echo base_url('cricket/cricketnews')?>">Cricket</a>
           </li>
           <li>
-            <a class="" href="./pages/football.html">Football</a>
+            <a class="" href="<?php echo base_url('football/index')?>">Football</a>
           </li>
         </ul>
         <ul>
           <li>
-            <a href="./pages/sign-in.html"
+      
+            <a href="<?php echo base_url('sign/signin') ?>"
               class="flex items-center gap-2.5 py-2 lg:py-3 px-4 lg:px-6 rounded-[20px] bg-primary">
               <span class="font-semibold text-[15px] lg:text-base">Sign in</span>
               <img src="<?php echo $ascurl;?>/images/header/user.png" alt="user icon" class="w-5 lg:w-auto" />

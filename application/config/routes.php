@@ -68,7 +68,7 @@ $route['contact'] = "Contact";
 $route['contacts'] = "Contact/contacts";
 //user rgistration
 $route['registration'] = "Registration";
-$route['registration'] = "Registration/registration";
+//$route['registration'] = "Registration/registration";
 //pages
 $route['category/(:any)'] = "Pages_controller/category/$1";
 $route['category/(:any)/(:any)'] = "Pages_controller/category/$1/$1";
@@ -78,6 +78,15 @@ $route['(page/(:any))'] = "Pages_controller/page/$1";
 //article page 
 $route['(:any)/details/(:any)/(:any)'] = "Article_controller/details/$1/$2/$3";
 $route['(:any)'] = "Article_controller/news_details/$1";
+
+
+//User Sign IN
+$route['sign/signin'] = "Sign/signIn";
+$route['football'] = "Football/index";
+
+
+
+
 
 
 //set modules/config/routes.php

@@ -49,7 +49,7 @@ class Registration extends CI_Controller {
         $data['footer_menu'] = $this->settings->menu_position_3();
 
         $this->load->view('themes/' . $default_theme . '/header', $data);
-        $this->load->view("themes/" . $default_theme . "/breaking");
+        
         $this->load->view('themes/' . $default_theme . '/menu');
         $this->load->view('themes/' . $default_theme . '/view_registration');
         $this->load->view('themes/' . $default_theme . '/footer');
