@@ -135,6 +135,17 @@
                             <?php if(@$user_type==3){?>
 
 
+                                <li class="role">
+                                    <a class="has-arrow material-ripple " href="#">
+                                        <i class="fas fa-wheelchair mr-2"></i>
+                                        Tips & Prediction
+                                    </a>
+                                    <ul class="nav-second-level  role-mm">
+                                            <li><a href="<?php echo base_url('dashboard/role/create_system_role') ?>">Add Tips Prediction'</a></li>
+                                            <li><a href="<?php echo base_url('dashboard/role/role_list') ?>">Tips Prediction List'</a></li>
+                                            
+                                    </ul>
+                                </li>
                                 <li class="autoupdate">
                                     <a href="<?php echo base_url('dashboard/autoupdate');?>"> 
                                         <i class='fas fa-sync mr-2'></i>
@@ -142,32 +153,7 @@
                                     </a>
                                 <li>
 
-                                
-                                <li class="role">
-                                    <a class="has-arrow material-ripple " href="#">
-                                        <i class="fas fa-wheelchair mr-2"></i>
-                                        <?php echo display('role')?>
-                                    </a>
-                                    <ul class="nav-second-level  role-mm">
-                                            <li><a href="<?php echo base_url('dashboard/role/create_system_role') ?>"><?php echo display('add_role')?></a></li>
-                                            <li><a href="<?php echo base_url('dashboard/role/role_list') ?>"><?php echo display('role_list')?></a></li>
-                                            <li><a href="<?php echo base_url('dashboard/role/user_access_role') ?>"><?php echo display('user_access_role')?></a></li> 
-                                    </ul>
-                                </li>
-
-                                <li class="theme">
-                                    <a href="<?php echo base_url('addon/theme');?>"> 
-                                        <i class='typcn typcn-device-laptop mr-2'></i>
-                                        <?php echo display('theme')?>
-                                    </a>
-                                <li>
-
-                                <li class="module">
-                                    <a href="<?php echo base_url('addon/module');?>"> 
-                                        <i class="fas fa-universal-access mr-2"></i> 
-                                        <?php echo display('module')?>
-                                    </a>
-                                <li>
+                               
 
 
                             <?php } ?> 

@@ -1,13 +1,16 @@
-
+ <?php 
+     $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
+    
+     ?>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
         <meta name="author" content="Bdtask">
-        <title><?php echo (!empty($settings->website_title)?$settings->website_title:null) ?> :: <?php echo (!empty($title)?$title:null) ?></title>
+        <title>ScoreSoup</title>
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url().@$settings->favicon;?>">
+        <link rel="shortcut icon" href="<?php echo $ascurl;?>/images/header/logo.png">
 
         <link href="<?php echo base_url()?>assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
         <?php if($settings->ltl_rtl==1){?>

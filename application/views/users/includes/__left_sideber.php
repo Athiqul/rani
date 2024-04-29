@@ -11,7 +11,6 @@
     $bu = base_url();
 
 
-   
 ?>
 
             <input type="hidden" id="segment1" value="<?php echo $this->uri->segment(1); ?>">

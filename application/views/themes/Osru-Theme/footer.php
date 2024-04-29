@@ -48,23 +48,23 @@
       <nav class="py-4 md:flex justify-between items-center gap-3">
         <ul>
           <li>
-            <a href="index.html">
+            <a href="<?php echo base_url('/')?>">
               <img src="<?php echo $ascurl?>/images/header/logo.png" alt="sports rani logo" class="w-[168px] lg:w-auto" />
             </a>
           </li>
         </ul>
         <ul class="primary-menu hidden lg:flex items-center text-sm">
           <li>
-            <a class="" href="index.html">Home</a>
+            <a class="" href="<?php echo base_url('/')?>">Home</a>
           </li>
           <li>
-            <a class="" href="./pages/tips-and-prediction.html">Review & Prediction</a>
+            <a class="" href="<?php echo base_url('tips/prediction')?>">Review & Prediction</a>
           </li>
           <li>
-            <a class="" href="/pages/cricket.html">Cricket</a>
+            <a class="" href="<?php echo base_url('cricket/cricketnews')?>">Cricket</a>
           </li>
           <li>
-            <a class="" href="./pages/football.html">Football</a>
+            <a class="" href="<?php echo base_url('football/index')?>">Football</a>
           </li>
         </ul>
         <ul>
@@ -121,7 +121,7 @@
   <div class="lg:hidden w-full h-[77px] p-4 fixed left-0 bottom-0 z-50 bg-secondary">
     <ul class="grid grid-cols-4 gap-2 text-center capitalize">
       <li>
-        <a href="./pages/tips-and-prediction.html" class="">
+        <a href="<?php echo base_url('tips/prediction')?>" class="">
           <div class="mx-auto -mt-[30px] w-[43px] h-[43px] bg-secondary rounded-full grid place-content-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <g id="sun" clip-path="url(#clip0_664_623)">
@@ -146,7 +146,7 @@
         </a>
       </li>
       <li>
-        <a href="./index.html" >
+        <a href="<?php echo base_url('/')?>" >
           <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
             <script xmlns="" />
             <path
@@ -163,7 +163,7 @@
       </li>
 
       <li>
-        <a href="./pages/cricket.html" class="">
+        <a href="<?php echo base_url('cricket/cricketnews')?>" class="">
          <img src="../images/Scoreboard.png" class="m-auto" />
           <p class="mt-1 text-[#F1F5F9] text-[10px]">cricket</p>
         </a>
@@ -172,7 +172,7 @@
     
 
       <li>
-        <a href="./pages/football.html" class="">
+        <a href="<?php echo base_url('football/index')?>" class="">
           <img src="../images/football.png" class="m-auto" />
           <p class="mt-1 text-[#F1F5F9] text-[10px]">Football</p>
         </a>
