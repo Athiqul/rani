@@ -4,7 +4,7 @@
  * @author  : BDTASK <bdtask@gmail.com>
  * @link    : http://www.bdtask.com
  */
-class Role extends MX_Controller {
+class AddTips extends MX_Controller {
  	
  	public function __construct()
  	{
@@ -14,6 +14,16 @@ class Role extends MX_Controller {
 			redirect('login');
  	}
 
+
+	public function create_list()
+	{
+		$data['modules'] = $this->db->select('*')->from('sec_menu_item')->group_by('module')->get()->result();
+		
+		$data['title']      = display('add_role');
+		$data['module'] 	= "dashboard"; 
+		$data['page']   	= "tips/create_list";  
+		echo Modules::run('template/layout', $data); 
+	}
 
 	public function create_system_role()
 	{
