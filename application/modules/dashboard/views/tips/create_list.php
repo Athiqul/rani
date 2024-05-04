@@ -29,56 +29,57 @@
             <div class="col-md-12 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Website Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" placeholder="Website Name" name="website_name" id="website_name">
+                    <input type="text" class="form-control" placeholder="Website Name" name="website_name" id="website_name" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Bonus Code <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" placeholder="Bonus Code" name="bonus_code" id="bonus_code">
+                    <input type="text" class="form-control" placeholder="Bonus Code" name="bonus_code" id="bonus_code" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Percentage Payout <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="percentage_payout" id="percentage_payout">
+                    <input type="text" class="form-control" name="percentage_payout" id="percentage_payout" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Payout Speed <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="payout_speed" id="payout_speed">
+                    <input type="text" class="form-control" name="payout_speed" id="payout_speed" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Number of games<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="number_of_games" id="number_of_games">
+                    <input type="text" class="form-control" name="number_of_games" id="number_of_games" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Max Jackpot<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="max_jackpot" id="max_jackpot">
+                    <input type="text" class="form-control" name="max_jackpot" id="max_jackpot" required>
                 </div>
             </div>
 
             <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Compatiable With<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="compatible_with" id="compatible_with">
+                    <input type="text" class="form-control" name="compatible_with" id="compatible_with" required>
                 </div>
             </div>
 
             <div class="col-md-12 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Language<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="languade" id="language">
+                    <input type="text" data-role="tagsinput" value="Bangla, German, Greek, English, Spanish, Finnish, French, Hindi, Creation" class="form-control" name="languade" id="language" required>
+
                 </div>
             </div>
 
@@ -86,7 +87,7 @@
                 <div class="form-group">
                     <label class="font-weight-600">Banking Option<span class="text-danger">*</span></label>
 
-                    <input name="available_banking_options" data-role="tagsinput" value="Visa,Master,Skrill" id="available_games" class="form-control" />
+                    <input name="available_banking_options" data-role="tagsinput" value="Visa,Master,Skrill" id="available_games" class="form-control" required />
 
                 </div>
             </div>
@@ -94,28 +95,28 @@
             <div class="col-md-12 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Available Games<span class="text-danger">*</span></label>
-                    <input name="available_games" data-role="tagsinput" value="7 Slots,Blackjack,Roulette,Baccarat" id="available_games" class="form-control" />
+                    <input name="available_games" data-role="tagsinput" value="7 Slots,Blackjack,Roulette,Baccarat" id="available_games" class="form-control" required />
                 </div>
             </div>
 
             <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Reviewer Name<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="reviewer_name" id="reviewer_name">
+                    <input type="text" class="form-control" name="reviewer_name" id="reviewer_name" required>
                 </div>
             </div>
 
             <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Date<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control datepicker1" name="date" id="date" value="<?php echo date("Y-m-d") ?>">
+                    <input type="text" class="form-control datepicker1" name="date" id="date" value="<?php echo date("Y-m-d") ?>" required />
                 </div>
             </div>
 
             <div class="col-md-12">
                 <div class="form-group">
                     <label class="font-weight-600"> About </label>
-                    <textarea class="form-control" id="details" placeholder="about" name="about" rows="10" cols="80"></textarea>
+                    <textarea class="form-control" id="details" placeholder="about" name="about" rows="10" cols="80" required></textarea>
 
                 </div>
             </div>
@@ -125,7 +126,7 @@
                 <div class="form-group" id="bankingOptionsContainer">
                     <label class="font-weight-600">positive Aspects<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" name="positive_aspects[]" class="form-control" placeholder="Type Positive Aspects">
+                        <input type="text" name="positive_aspects[]" class="form-control" placeholder="Type Positive Aspects" required>
                         <div class="input-group-append">
                             <button type="button" class="btn btn-success" onclick="addMoreInput()">Add More</button>
                         </div>
@@ -137,7 +138,7 @@
             <script>
                 function addMoreInput() {
                     var newInput = '<div class="input-group mt-2">' +
-                        '<input type="text" name="postitive_aspects[]" class="form-control" placeholder="Type Positive Aspects">' +
+                        '<input type="text" name="postitive_aspects[]" class="form-control" placeholder="Type Positive Aspects" required>' +
                         '<div class="input-group-append">' +
                         '<button type="button" class="btn btn-danger" onclick="removeInput(this)">Remove</button>' +
                         '</div>' +
@@ -155,7 +156,7 @@
                 <div class="form-group" id="negativeAspects">
                     <label class="font-weight-600">Negative Aspects<span class="text-danger">*</span></label>
                     <div class="input-group">
-                        <input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects">
+                        <input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects" required>
                         <div class="input-group-append">
                             <button type="button" class="btn btn-success" onclick="addMoreNegativeInput()">Add More</button>
                         </div>
@@ -167,7 +168,7 @@
             <script>
                 function addMoreNegativeInput() {
                     var newInput = '<div class="input-group mt-2">' +
-                        '<input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects">' +
+                        '<input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects" required>' +
                         '<div class="input-group-append">' +
                         '<button type="button" class="btn btn-danger" onclick="removeNegativeInput(this)">Remove</button>' +
                         '</div>' +
@@ -184,14 +185,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600"> Software And Games Collection Rating </label>
-                    <input type="text" name="software_rating" class="form-control">
+                    <input type="text" name="software_rating" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Software And Games Collection Details </label>
-                    <input type="text" name="software_games_collection" class="form-control">
+                    <input type="text" name="software_games_collection" class="form-control" required>
 
                 </div>
             </div>
@@ -200,14 +201,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600"> Banking Option Ratings </label>
-                    <input type="text" name="banking_options_rating" class="form-control">
+                    <input type="text" name="banking_options_rating" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Banking Option Details </label>
-                    <input type="text" name="banking_options_details" class="form-control">
+                    <input type="text" name="banking_options_details" class="form-control" required>
 
                 </div>
             </div>
@@ -215,14 +216,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600"> Security Fairness Ratings </label>
-                    <input type="text" name="security_fairness_ratings" class="form-control">
+                    <input type="text" name="security_fairness_ratings" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Security Fairness Details </label>
-                    <input type="text" name="security_fairness_details" class="form-control">
+                    <input type="text" name="security_fairness_details" class="form-control" required>
 
                 </div>
             </div>
@@ -230,14 +231,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600"> Mobile Casino Ratings </label>
-                    <input type="text" name="mobile_casino_ratings" class="form-control">
+                    <input type="text" name="mobile_casino_ratings" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Mobile Casino Details </label>
-                    <input type="text" name="mobile_casino_details" class="form-control">
+                    <input type="text" name="mobile_casino_details" class="form-control" required>
 
                 </div>
             </div>
@@ -246,14 +247,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600">Bonus Promotions Rating</label>
-                    <input type="text" name="bonus_promotions_rating" class="form-control">
+                    <input type="text" name="bonus_promotions_rating" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Bonus Promotions Details </label>
-                    <input type="text" name="bonus_promotions_details" class="form-control">
+                    <input type="text" name="bonus_promotions_details" class="form-control" required>
 
                 </div>
             </div>
@@ -312,7 +313,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600"> Redirect Image Website Name </label>
-                    <input type="text" name="mobile_app_url" class="form-control">
+                    <input type="text" name="mobile_app_url" class="form-control" required>
 
                 </div>
             </div>
@@ -363,7 +364,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Welcome Bonus</label>
-                    <input type="text" name="welcome_bonus" class="form-control">
+                    <input type="text" name="welcome_bonus" class="form-control" required>
 
                 </div>
             </div>
@@ -371,7 +372,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Win Rate</label>
-                    <input type="text" name="win_rate" class="form-control">
+                    <input type="text" name="win_rate" class="form-control" required>
 
                 </div>
             </div>
@@ -379,7 +380,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Payout</label>
-                    <input type="text" name="payout" class="form-control">
+                    <input type="text" name="payout" class="form-control" required>
 
                 </div>
             </div>
@@ -387,7 +388,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Rating</label>
-                    <input type="text" name="rating" class="form-control">
+                    <input type="text" name="rating" class="form-control" required>
 
                 </div>
             </div>
@@ -395,7 +396,7 @@
            <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Website Url</label>
-                    <input type="text" name="website_url" class="form-control">
+                    <input type="text" name="website_url" class="form-control" required>
 
                 </div>
             </div>
@@ -403,7 +404,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Color</label>
-                    <input type="color" name="color" class="form-control">
+                    <input type="color" name="color" class="form-control" required>
 
                 </div>
             </div>

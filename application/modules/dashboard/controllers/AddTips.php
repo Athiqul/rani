@@ -9,7 +9,7 @@ class AddTips extends MX_Controller {
  	public function __construct()
  	{
  		parent::__construct();
- 		$this->load->model(array('module_permission_model','role_model'));
+ 		$this->load->model(array('module_permission_model','role_model','positiveAspect_model','negativeAspect_model'));
 		if (! $this->session->userdata('isAdmin'))
 			redirect('login');
  	}
@@ -28,8 +28,157 @@ class AddTips extends MX_Controller {
 
 	public function store_list()
 	{
-		
+		// print_r($this->input->post());
+		// die();
+		$this->form_validation->set_rules('website_name', 'Website Name', 'required|max_length[255]');
+        $this->form_validation->set_rules('bonus_code', 'Bonus Code', 'max_length[255]');
+        $this->form_validation->set_rules('percentage_payout', 'Percentage Payout', 'required|numeric');
+        $this->form_validation->set_rules('payout_speed', 'Payout Speed', 'required|max_length[50]');
+        $this->form_validation->set_rules('number_of_games', 'Number of Games', 'required|integer');
+        $this->form_validation->set_rules('max_jackpot', 'Max Jackpot', 'numeric');
+        $this->form_validation->set_rules('compatible_with', 'Compatible With', 'max_length[255]');
+        $this->form_validation->set_rules('language', 'Language', 'max_length[255]');
+        $this->form_validation->set_rules('available_banking_options', 'Available Banking Options', 'max_length[255]');
+        $this->form_validation->set_rules('reviewer_name', 'Reviewer Name', 'required|max_length[255]');
+        $this->form_validation->set_rules('about_text', 'About', 'required');
+        $this->form_validation->set_rules('positive_aspects[]', 'Positive Aspects', 'required');
+        $this->form_validation->set_rules('negative_aspects[]', 'Negative Aspects', 'required');
+        $this->form_validation->set_rules('software_games_collection', 'Software Games Collection', 'required');
+        $this->form_validation->set_rules('banking_options_details', 'Banking Options Details', 'required');
+        $this->form_validation->set_rules('security_fairness_details', 'Security and Fairness Details', 'required');
+        $this->form_validation->set_rules('mobile_casino_details', 'Mobile Casino Details', 'required');
+        $this->form_validation->set_rules('bonus_promotions_details', 'Bonus and Promotions Details', 'required');
+        $this->form_validation->set_rules('mobile_app_screens_upload', 'Mobile App Screens Upload', 'required');
+		$this->form_validation->set_rules('image_upload', 'Image Upload', 'callback_validate_image');
+        $this->form_validation->set_rules('welcome_bonus', 'Welcome Bonus', 'max_length[255]');
+        $this->form_validation->set_rules('win_rate', 'Win Rate', 'max_length[255]');
+        $this->form_validation->set_rules('payout', 'Payout', 'max_length[255]');
+        $this->form_validation->set_rules('rating', 'Rating', 'required|integer');
+        $this->form_validation->set_rules('website_url', 'Website URL', 'required|max_length[255]');
+        $this->form_validation->set_rules('color', 'Color', 'required|max_length[255]');
+       
+
+        // Validate form data
+        if ($this->form_validation->run() === FALSE) {
+            // Form validation failed, load the form view again with validation errors
+            $data['modules'] = $this->db->select('*')->from('sec_menu_item')->group_by('module')->get()->result();
+            $data['title']      = display('add_role');
+            $data['module']     = "dashboard"; 
+            $data['page']       = "tips/create_list";  
+            echo Modules::run('template/layout', $data);
+        } else {
+
+			$config['upload_path'] = './uploads/';
+            $config['allowed_types'] = 'gif|jpg|jpeg|png';
+            $config['max_size'] = 2048; // 2MB
+
+            $this->load->library('upload', $config);
+
+            // Upload image for 'image_upload' field
+            if (!empty($_FILES['image_upload']['name'])) {
+                if ($this->upload->do_upload('image_upload')) {
+                    $upload_data = $this->upload->data();
+                    $image_name = $upload_data['file_name'];
+                } else {
+                    // Upload failed, display error
+                    $error = $this->upload->display_errors();
+                    $this->session->set_flashdata('exception', $error);
+                    redirect('rani/dashboard/addtips/create_list');
+                }
+            }
+
+            // Upload image for 'mobile_app_screens_upload' field
+            if (!empty($_FILES['mobile_app_screens_upload']['name'])) {
+                if ($this->upload->do_upload('mobile_app_screens_upload')) {
+                    $upload_data = $this->upload->data();
+                    $mobile_image_name = $upload_data['file_name'];
+
+                  
+                   
+                } else {
+                    // Upload failed, display error
+                    $error = $this->upload->display_errors();
+					$this->session->set_flashdata('exception', $error);
+                    redirect('rani/dashboard/addtips/create_list');
+                    
+                }
+            }
+            // Form validation passed, proceed to save data
+            $data = array(
+                'website_name' => $this->input->post('website_name'),
+                'bonus_code' => $this->input->post('bonus_code'),
+                'percentage_payout' => $this->input->post('percentage_payout'),
+                'payout_speed' => $this->input->post('payout_speed'),
+                'number_of_games' => $this->input->post('number_of_games'),
+                'max_jackpot' => $this->input->post('max_jackpot'),
+                'compatible_with' => $this->input->post('compatible_with'),
+                'language' => $this->input->post('language'),
+                'available_banking_options' => $this->input->post('available_banking_options'),
+                'reviewer_name' => $this->input->post('reviewer_name'),
+                'date' => date('Y-m-d'), // Current date
+                'about' => $this->input->post('about_text'),
+                'software_games_collection' => $this->input->post('software_games_collection'),
+                'banking_options_details' => $this->input->post('banking_options_details'),
+                'security_fairness_details' => $this->input->post('security_fairness_details'),
+                'mobile_casino_details' => $this->input->post('mobile_casino_details'),
+                'bonus_promotions_details' => $this->input->post('bonus_promotions_details'),
+                'mobile_app_screens_upload' => $mobile_image_name,
+                'image_upload' => $image_name,
+                'welcome_bonus' => $this->input->post('welcome_bonus'),
+                'win_rate' => $this->input->post('win_rate'),
+                'payout' => $this->input->post('payout'),
+                'rating' => $this->input->post('rating'),
+                'website_url' => $this->input->post('website_url'),
+                'color' => $this->input->post('color'),
+                'status' => $this->input->post('status')
+            );
+
+            // Call the model function to save the data
+            $insert_id = $this->WebsiteReview_model->saveWebsiteReview($data);
+
+            if ($insert_id) {
+                //Add Positive Aspects
+				$positive_aspects = $this->input->post('positive_aspects');
+                if (!empty($positive_aspects)) {
+                    foreach ($positive_aspects as $key => $value) {
+                        $data = array(
+                            'listing_id' => $insert_id,
+                            'description' => $value
+                        );
+                        $this->positiveAspects_model->insert_positive_aspect($data);
+                    }
+                }
+
+
+				$negative_aspects = $this->input->post('positive_aspects');
+                if (!empty($positive_aspects)) {
+                    foreach ($negative_aspects as $key => $value) {
+                        $data = array(
+                            'listing_id' => $insert_id,
+                            'description' => $value
+                        );
+                        $this->negativeAspects_model->insert_positive_aspect($data);
+                    }
+                }
+                redirect('success_page');
+            } else {
+                
+				echo "Failed to insert data";
+            }
+        }
 	}
+
+
+	public function validate_image($str) {
+        // Check if a file was selected for upload
+        if (empty($_FILES[$str]['name'])) {
+            $this->form_validation->set_message('validate_image', 'Please select an image to upload.');
+            return FALSE;
+        }
+
+        return TRUE;
+    }
+
 
 	public function create_system_role()
 	{
