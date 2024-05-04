@@ -25,6 +25,12 @@ class AddTips extends MX_Controller {
 		echo Modules::run('template/layout', $data); 
 	}
 
+
+	public function store_list()
+	{
+		
+	}
+
 	public function create_system_role()
 	{
 		$data['modules'] = $this->db->select('*')->from('sec_menu_item')->group_by('module')->get()->result();

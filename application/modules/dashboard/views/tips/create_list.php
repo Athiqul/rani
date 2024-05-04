@@ -9,7 +9,7 @@
     <div class="card-header">
         <div class="d-flex justify-content-between align-items-center">
             <div>
-                <h6 class="fs-17 font-weight-600 mb-0"><?php echo makeString(['news', 'post']) ?></h6>
+                <h6 class="fs-17 font-weight-600 mb-0">Create Listing</h6>
             </div>
         </div>
     </div>
@@ -20,8 +20,8 @@
         include('common_file/array_file.php');
         $home_page = (isset($home_page)) ? $home_page : 0;
         $other_position = (isset($other_position)) ? $other_position : 1;
-        $attributes = array('class' => 'myform', 'name' => 'myform', 'id' => 'myform', 'onSubmit' => 'return FormValidation()');
-        echo form_open_multipart('news/news_post/post', $attributes);
+      
+        echo form_open_multipart('dashboard/addtips/store_list');
         ?>
 
         <div class="row">
@@ -33,42 +33,42 @@
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Bonus Code <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" placeholder="Bonus Code" name="bonus_code" id="bonus_code">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Percentage Payout <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="percentage_payout" id="percentage_payout">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Payout Speed <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="payout_speed" id="payout_speed">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Number of games<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="number_of_games" id="number_of_games">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Max Jackpot<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="max_jackpot" id="max_jackpot">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Compatiable With<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="compatible_with" id="compatible_with">
@@ -85,30 +85,27 @@
             <div class="col-md-12 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Banking Option<span class="text-danger">*</span></label>
-                    <select name="available_banking_options[]" id="available_banking_options" class="form-control" multiple>
-                        <option value="visa">Visa</option>
-                        <option value="mastercard">MasterCard</option>
-                        <option value="skrill">Skrill</option>
-                    </select>
+
+                    <input name="available_banking_options" data-role="tagsinput" value="Visa,Master,Skrill" id="available_games" class="form-control" />
 
                 </div>
             </div>
 
             <div class="col-md-12 pr-md-1">
                 <div class="form-group">
-                    <label class="font-weight-600">Available Games(make it separate by comma ,)<span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="available_games" id="available_games">
+                    <label class="font-weight-600">Available Games<span class="text-danger">*</span></label>
+                    <input name="available_games" data-role="tagsinput" value="7 Slots,Blackjack,Roulette,Baccarat" id="available_games" class="form-control" />
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Reviewer Name<span class="text-danger">*</span></label>
                     <input type="text" class="form-control" name="reviewer_name" id="reviewer_name">
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Date<span class="text-danger">*</span></label>
                     <input type="text" class="form-control datepicker1" name="date" id="date" value="<?php echo date("Y-m-d") ?>">
@@ -137,24 +134,24 @@
             </div>
 
             <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script>
-    function addMoreInput() {
-        var newInput = '<div class="input-group mt-2">' +
-                           '<input type="text" name="postitive_aspects[]" class="form-control" placeholder="Type Positive Aspects">' +
-                           '<div class="input-group-append">' +
-                               '<button type="button" class="btn btn-danger" onclick="removeInput(this)">Remove</button>' +
-                           '</div>' +
-                       '</div>';
+            <script>
+                function addMoreInput() {
+                    var newInput = '<div class="input-group mt-2">' +
+                        '<input type="text" name="postitive_aspects[]" class="form-control" placeholder="Type Positive Aspects">' +
+                        '<div class="input-group-append">' +
+                        '<button type="button" class="btn btn-danger" onclick="removeInput(this)">Remove</button>' +
+                        '</div>' +
+                        '</div>';
 
-        $('#bankingOptionsContainer').append(newInput);
-    }
+                    $('#bankingOptionsContainer').append(newInput);
+                }
 
-    function removeInput(button) {
-        $(button).closest('.input-group').remove();
-    }
-</script>
+                function removeInput(button) {
+                    $(button).closest('.input-group').remove();
+                }
+            </script>
 
-<div class="col-md-12 pr-md-1">
+            <div class="col-md-12 pr-md-1">
                 <div class="form-group" id="negativeAspects">
                     <label class="font-weight-600">Negative Aspects<span class="text-danger">*</span></label>
                     <div class="input-group">
@@ -166,138 +163,103 @@
                 </div>
             </div>
 
-            
-<script>
-    function addMoreNegativeInput() {
-        var newInput = '<div class="input-group mt-2">' +
-                           '<input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects">' +
-                           '<div class="input-group-append">' +
-                               '<button type="button" class="btn btn-danger" onclick="removeNegativeInput(this)">Remove</button>' +
-                           '</div>' +
-                       '</div>';
 
-        $('#negativeAspects').append(newInput);
-    }
+            <script>
+                function addMoreNegativeInput() {
+                    var newInput = '<div class="input-group mt-2">' +
+                        '<input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects">' +
+                        '<div class="input-group-append">' +
+                        '<button type="button" class="btn btn-danger" onclick="removeNegativeInput(this)">Remove</button>' +
+                        '</div>' +
+                        '</div>';
 
-    function removeNegativeInput(button) {
-        $(button).closest('.input-group').remove();
-    }
-</script>
+                    $('#negativeAspects').append(newInput);
+                }
 
-
-
-            <div class="col-md-3 pr-md-1">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo makeString(['home_position']) ?> </label>
-                    <?php echo form_dropdown('home_page', @$home_position, @$home_page, 'class="form-control"', 'id="home_page"'); ?>
-                </div>
-            </div>
-
-            <div class="col-md-3 pl-md-1">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('publish_date'); ?></label>
-                    <input type="text" class="form-control datepicker1" name="publish_date" id="publish_date" value="<?php echo date("Y-m-d") ?>">
-                </div>
-            </div>
-
-
-        </div>
-
-
-        <div class="row">
-
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('short'); ?> <?php echo display('head_line'); ?></label>
-                    <input type="text" class="form-control" placeholder="<?php echo display('short'); ?> <?php echo display('head_line'); ?>" name="short_head" id="short_head">
-                </div>
-            </div>
-
-            <div class="col-md-7">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('head_line'); ?><span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" placeholder="<?php echo display('head_line'); ?>" id="head_line" name="head_line" required="">
-                </div>
-            </div>
-
-        </div>
-
-
-
-
-
-        <div class="add_input">
-        </div>
-
-        <div class="row">
-
-            <div class="col-md-4 pr-md-1">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('photo'); ?></label>
-                    <div class="btn-select-image">
-                        <div id="priview"></div>
-                        <input type="hidden" readonly="" readonly="readonly" name="lib_file_selected" id="lib_file_selected" class="form-control" />
-                        <?php echo anchor_popup('news/news_post/my_window/', '<i class="fas fa-cloud-upload-alt"></i> [ jpg,png,jpeg,gif]', $nw_img_search); ?>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="col-md-4 pr-md-1">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('image_alt') ?></label>
-                    <input type='text' placeholder="Image alt" name="image_alt" class="form-control" id="image_alt">
-                </div>
-            </div>
-
-            <div class="col-md-4 pr-md-1">
-                <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('image_title') ?> </label>
-                    <input type='text' name="image_title" placeholder="Image title" class="form-control" id="image_title">
-                </div>
-            </div>
-
-
-        </div>
-
-
-        <div class="row">
+                function removeNegativeInput(button) {
+                    $(button).closest('.input-group').remove();
+                }
+            </script>
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label> <?php echo display('custom_url') ?></label>
-                    <input type="text" class="form-control" placeholder="There-are-many-variations-of-passages-of-Lorem-Ipsum" id="customurl" name="customurl">
-                    <span class="text-danger">Special character(e.g .,@$) not allowed in this field</span>
+                    <label class="font-weight-600"> Software And Games Collection Rating </label>
+                    <input type="text" name="software_rating" class="form-control">
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="font-weight-600"> Software And Games Collection Details </label>
+                    <input type="text" name="software_games_collection" class="form-control">
+
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="font-weight-600"> Banking Option Ratings </label>
+                    <input type="text" name="banking_options_rating" class="form-control">
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="font-weight-600"> Banking Option Details </label>
+                    <input type="text" name="banking_options_details" class="form-control">
+
                 </div>
             </div>
 
             <div class="col-md-3">
                 <div class="form-group">
-                    <label><?php echo display('seo_title') ?></label>
-                    <input type="text" class="form-control" placeholder="Enter your SEO title" id="customurl" name="seo_title">
+                    <label class="font-weight-600"> Security Fairness Ratings </label>
+                    <input type="text" name="security_fairness_ratings" class="form-control">
+
                 </div>
             </div>
-
-
-            <div class="col-md-3 pl-md-1">
+            <div class="col-md-9">
                 <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('reporter'); ?></label>
-                    <input type="text" class="form-control" name="reporter" placeholder="Reporter" id="reporter">
+                    <label class="font-weight-600"> Security Fairness Details </label>
+                    <input type="text" name="security_fairness_details" class="form-control">
+
                 </div>
             </div>
 
-
-            <div class="col-md-3 pr-md-1">
+            <div class="col-md-3">
                 <div class="form-group">
-                    <label class="font-weight-600">Podcust/Video Upload</label>
-                    <div class="btn-select-image">
-                        <div id="podcustPriview"></div>
-                        <input type="hidden" readonly="" readonly="readonly" name="lib_podcust_selected" id="lib_podcust_selected" class="form-control" />
-                        <?php echo anchor_popup('news/news_post/my_protcust/', '<i class="fas fa-cloud-upload-alt"></i> [ mp3,mp4]', $nw_img_search); ?>
-                    </div>
+                    <label class="font-weight-600"> Mobile Casino Ratings </label>
+                    <input type="text" name="mobile_casino_ratings" class="form-control">
+
                 </div>
             </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="font-weight-600"> Mobile Casino Details </label>
+                    <input type="text" name="mobile_casino_details" class="form-control">
+
+                </div>
+            </div>
+
+
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="font-weight-600">Bonus Promotions Rating</label>
+                    <input type="text" name="bonus_promotions_rating" class="form-control">
+
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <label class="font-weight-600"> Bonus Promotions Details </label>
+                    <input type="text" name="bonus_promotions_details" class="form-control">
+
+                </div>
+            </div>
+
+
+
 
 
         </div>
@@ -305,73 +267,163 @@
 
         <div class="row">
 
-            <div class="col-md-6">
+            <div class="col-md-6 pr-md-1">
                 <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('video_url'); ?></label>
-                    <input type="text" class="form-control" placeholder="https://www.youtube.com/watch?v=PzmNssVLcLQ" name="videos" id="videos">
+                    <label class="font-weight-600">Mobile App Screen Website Redirect Image<span class="text-danger">*</span></label>
+                    <input type="file" name="mobile_app_screens_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageFile(event)" required>
+                    <small class="form-text text-muted">Accepted formats: JPEG, PNG, GIF, etc.</small>
+                    <div id="imagePreview" class="mt-2 col-md-4 "></div>
                 </div>
             </div>
 
 
+            <script>
+                function validateImageFile(event) {
+                    const file = event.target.files[0];
+
+                    if (file) {
+                        const fileType = file.type.toLowerCase();
+                        const allowedExtensions = ['image/jpeg', 'image/png', 'image/gif'];
+
+                        if (allowedExtensions.includes(fileType)) {
+                            // Valid image file selected, show preview
+                            const reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                const imgElement = document.createElement('img');
+                                imgElement.src = e.target.result;
+                                imgElement.style.maxWidth = '100%';
+                                imgElement.style.height = '200px';
+                                document.getElementById('imagePreview').innerHTML = ''; // Clear previous preview
+                                document.getElementById('imagePreview').appendChild(imgElement);
+                            };
+
+                            reader.readAsDataURL(file);
+                        } else {
+                            // Invalid file type selected, reset input field
+                            event.target.value = '';
+                            document.getElementById('imagePreview').innerHTML = '<p class="text-danger">Please select a valid image file (JPEG, PNG, GIF).</p>';
+                        }
+                    }
+                }
+            </script>
+
+
             <div class="col-md-6">
                 <div class="form-group">
-                    <label class="font-weight-600"><?php echo display('reference'); ?></label>
-                    <input type="text" class="form-control" placeholder="Reference" name="reference" id="reference">
+                    <label class="font-weight-600"> Redirect Image Website Name </label>
+                    <input type="text" name="mobile_app_url" class="form-control">
+
                 </div>
-                <input type="hidden" class="form-control datepicker1" name="ref_date" id="ref_date" value="<?php echo date("d-m-Y", time() + 6 * 60 * 60); ?>">
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-6 pr-md-1">
                 <div class="form-group">
-                    <label> <?php echo display('post_tag') ?> </label>
-                    <input name="post_tag" data-role="tagsinput" placeholder="Tag1,Tag2" id="post_tag" class="form-control" />
+                    <label class="font-weight-600">Listing Image Upload<span class="text-danger">*</span></label>
+                    <input type="file" name="image_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageView(event)" required>
+                    <small class="form-text text-muted">Accepted formats: JPEG, PNG, GIF, etc.</small>
+                    <div id="imageOverview" class="mt-2 col-md-4 "></div>
                 </div>
             </div>
 
 
+            <script>
+                function validateImageView(event) {
+                    const file = event.target.files[0];
+
+                    if (file) {
+                        const fileType = file.type.toLowerCase();
+                        const allowedExtensions = ['image/jpeg', 'image/png', 'image/gif'];
+
+                        if (allowedExtensions.includes(fileType)) {
+                            // Valid image file selected, show preview
+                            const reader = new FileReader();
+
+                            reader.onload = function(e) {
+                                const imgElement = document.createElement('img');
+                                imgElement.src = e.target.result;
+                                imgElement.style.maxWidth = '100%';
+                                imgElement.style.height = '200px';
+                                document.getElementById('imageOverview').innerHTML = ''; // Clear previous preview
+                                document.getElementById('imageOverview').appendChild(imgElement);
+                            };
+
+                            reader.readAsDataURL(file);
+                        } else {
+                            // Invalid file type selected, reset input field
+                            event.target.value = '';
+                            document.getElementById('imageOverview').innerHTML = '<p class="text-danger">Please select a valid image file (JPEG, PNG, GIF).</p>';
+                        }
+                    }
+                }
+            </script>
+
+
             <div class="col-md-6">
                 <div class="form-group">
-                    <label><?php echo makeString(['meta', 'keyword']); ?> </label>
-                    <input name="meta_keyword" data-role="tagsinput" id="meta_keyword" placeholder="keyword1,keyword2" class="form-control" />
+                    <label class="font-weight-600">Welcome Bonus</label>
+                    <input type="text" name="welcome_bonus" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="font-weight-600">Win Rate</label>
+                    <input type="text" name="win_rate" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="font-weight-600">Payout</label>
+                    <input type="text" name="payout" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="font-weight-600">Rating</label>
+                    <input type="text" name="rating" class="form-control">
+
+                </div>
+            </div>
+
+           <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-600">Website Url</label>
+                    <input type="text" name="website_url" class="form-control">
+
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label class="font-weight-600">Color</label>
+                    <input type="color" name="color" class="form-control">
+
                 </div>
             </div>
         </div>
 
 
-        <div class="form-group">
-            <label><?php echo makeString(['meta', 'description']); ?> </label>
-            <textarea class="form-control" placeholder="meta description" name="meta_description" id="meta_description"><?php echo html_escape(@$seo_info['meta_description']); ?></textarea>
-        </div>
-
-        <input type="hidden" value="0" name="confirm_dynamic_static" id="confirm_dynamic_static">
 
 
-        <div class="form-group">
 
-            <div class="checkbox checkbox-success checkbox-inline">
-                <input type="checkbox" value="1" name="latest_confirmed" id="latest_confirmed" checked="">
-                <label for="latest_confirmed"><?php echo display('latest_news'); ?> </label>
-            </div>
+       
+       
 
-            <div class="checkbox checkbox-success checkbox-inline">
-                <input type="checkbox" value="1" name="breaking_confirmed" id="breaking_confirmed">
-                <label for="breaking_confirmed"> <?php echo display('breaking_news'); ?> </label>
-            </div>
 
-            <div class="checkbox checkbox-success checkbox-inline">
-                <?php if ($this->session->userdata('user_type') != 1) { ?>
-                    <input type="checkbox" value="1" name="status_confirmed" id="status_confirmed" checked="checked" />
-                <?php } ?>
-                <label for="status_confirmed"> <?php echo display('status') ?> </label>
-            </div>
+       
 
-            <div class="checkbox checkbox-success checkbox-inline">
-                <input type="checkbox" value="1" name="schemasetup" id="schemasetup">
-                <label for="schemasetup"> Schema setup <span class="text-warning">(After post publish, Schema will be editable from post update)</span></label>
-            </div>
 
-        </div>
+        
+
+
+      
 
         <input type="hidden" id="base_url" name="base_url" value="<?php echo base_url() ?>">
         <input type="hidden" id="savestatus" name="savestatus" value="">
@@ -380,7 +432,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-md btn-success float-right"><?php echo display('post') ?> <?php echo display('news') ?></button>
+                <button type="submit" class="btn btn-md btn-success float-right">Create Listing</button>
             </div>
         </div>
 
