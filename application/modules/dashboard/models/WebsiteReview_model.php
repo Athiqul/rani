@@ -14,7 +14,7 @@ class WebsiteReview_model extends CI_Model {
      */
     public function get_reviews()
     {
-        $query = $this->db->get('websitereview');
+        $query = $this->db->get('websitereview')->result_array();
         return $query->result(); // Return all reviews as an array of objects
     }
 

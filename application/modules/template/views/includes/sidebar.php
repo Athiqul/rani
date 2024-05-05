@@ -142,7 +142,7 @@
                                     </a>
                                     <ul class="nav-second-level  role-mm">
                                             <li><a href="<?php echo base_url('dashboard/addtips/create_list') ?>">Add Tips Prediction'</a></li>
-                                            <li><a href="<?php echo base_url('dashboard/role/role_list') ?>">Tips Prediction List'</a></li>
+                                            <li><a href="<?php echo base_url('dashboard/addtips/list') ?>">Tips Prediction List'</a></li>
                                             
                                     </ul>
                                 </li>
