@@ -60,8 +60,8 @@ class AddTips extends MX_Controller
 		$this->form_validation->set_rules('bonus_promotions_details', 'Bonus and Promotions Details', 'required');
 		$this->form_validation->set_rules('welcome_bonus', 'Welcome Bonus', 'max_length[255]');
 		$this->form_validation->set_rules('win_rate', 'Win Rate', 'max_length[255]');
-		$this->form_validation->set_rules('payout', 'Payout', 'max_length[255]');
-		$this->form_validation->set_rules('rating', 'Rating', 'required|integer');
+		$this->form_validation->set_rules('payout', 'Payout', 'required');
+		$this->form_validation->set_rules('rating', 'Rating', 'required');
 		$this->form_validation->set_rules('website_url', 'Website URL', 'required|max_length[255]');
 		$this->form_validation->set_rules('color', 'Color', 'required|max_length[255]');
 		$this->form_validation->set_message('file_required', 'The %s field is required.');
@@ -303,8 +303,8 @@ class AddTips extends MX_Controller
 		$this->form_validation->set_rules('bonus_promotions_details', 'Bonus and Promotions Details', 'required');
 		$this->form_validation->set_rules('welcome_bonus', 'Welcome Bonus', 'max_length[255]');
 		$this->form_validation->set_rules('win_rate', 'Win Rate', 'max_length[255]');
-		$this->form_validation->set_rules('payout', 'Payout', 'max_length[255]');
-		$this->form_validation->set_rules('rating', 'Rating', 'required|integer');
+		$this->form_validation->set_rules('payout', 'Payout', 'required');
+		$this->form_validation->set_rules('rating', 'Rating', 'required');
 		$this->form_validation->set_rules('website_url', 'Website URL', 'required|max_length[255]');
 		$this->form_validation->set_rules('mobile_app_url', 'Mobile App Url', 'required|max_length[255]');
 		$this->form_validation->set_rules('color', 'Color', 'required|max_length[255]');
