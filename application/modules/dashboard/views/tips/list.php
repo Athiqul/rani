@@ -44,7 +44,7 @@
                                     
                                         <a href="<?php echo base_url('dashboard/addtips/edit_list/' . html_escape($row['id'])); ?>" class="btn btn-sm btn-success"><i class="fa fa-edit"></i></a>
                                   
-                                        <a onclick="delete_cnf('<?php echo base_url('news/news_list/singal/' . html_escape($row['news_id'])); ?>')" href="javascript:void(0)" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                                        
                                     
                                 </td>
                             </tr>

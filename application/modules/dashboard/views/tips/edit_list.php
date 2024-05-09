@@ -27,7 +27,7 @@
        
         ?>
 
-<form action="<?php echo base_url('dashboard/addtips/update_list')?>" method="post" enctype="multipart/form-data">
+<form action="<?php echo base_url('dashboard/addtips/update_list/'.$review['id'])?>" method="POST" enctype="multipart/form-data">
         <div class="row">
 
             <div class="col-md-12 pr-md-1">
@@ -345,7 +345,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600"> Redirect Image Website Name </label>
-                    <input type="text" name="mobile_app_url"  value="<?php echo set_value('mobile_app_url'); ?> "   class="form-control" required>
+                    <input type="text" name="mobile_app_url"  value="<?php echo set_value('mobile_app_url',$review['mobile_app_url']); ?> "   class="form-control" required>
 
                 </div>
             </div>

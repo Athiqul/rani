@@ -270,7 +270,18 @@ class AddTips extends MX_Controller
 
 	public function update_list($id)
 	{
-		$existing_data = $this->db->get_where('websitereview', array('id' =>$id));
+		// 	error_reporting(E_ALL);
+		// ini_set('display_errors', 1);
+
+		// // Debugging statements
+		// var_dump($_POST); // Check POST data
+		// var_dump($_FILES); // Check uploaded files
+
+		// echo $this->input->post('mobile_app_url');
+		// die();
+         
+		$existing_data = $this->db->get_where('websitereview', ['id' => $id])->row();
+
 		$this->load->library('upload');
 
 		// Set form validation rules for updating
@@ -285,8 +296,6 @@ class AddTips extends MX_Controller
 		$this->form_validation->set_rules('available_banking_options', 'Available Banking Options', 'max_length[255]');
 		$this->form_validation->set_rules('reviewer_name', 'Reviewer Name', 'required|max_length[255]');
 		$this->form_validation->set_rules('about', 'About', 'required');
-		$this->form_validation->set_rules('positive_aspects[]', 'Positive Aspects', 'required');
-		$this->form_validation->set_rules('negative_aspects[]', 'Negative Aspects', 'required');
 		$this->form_validation->set_rules('software_games_collection', 'Software Games Collection', 'required');
 		$this->form_validation->set_rules('banking_options_details', 'Banking Options Details', 'required');
 		$this->form_validation->set_rules('security_fairness_details', 'Security and Fairness Details', 'required');
@@ -297,6 +306,7 @@ class AddTips extends MX_Controller
 		$this->form_validation->set_rules('payout', 'Payout', 'max_length[255]');
 		$this->form_validation->set_rules('rating', 'Rating', 'required|integer');
 		$this->form_validation->set_rules('website_url', 'Website URL', 'required|max_length[255]');
+		$this->form_validation->set_rules('mobile_app_url', 'Mobile App Url', 'required|max_length[255]');
 		$this->form_validation->set_rules('color', 'Color', 'required|max_length[255]');
 		$this->form_validation->set_message('file_required', 'The %s field is required.');
 		// Add other validation rules as needed for updating...
@@ -304,8 +314,51 @@ class AddTips extends MX_Controller
 		// Validate form data
 		if ($this->form_validation->run() === FALSE) {
 			// Form validation failed, load the form view again with validation errors
-			$this->session->set_flashdata('exception', 'Form validation failed there is errors');
-					redirect("dashboard/addtips/update_list/{$id}"); 
+			$data['modules'] = $this->db->select('*')->from('sec_menu_item')->group_by('module')->get()->result();
+		$data['module']     = "dashboard";
+		$data['page']       = "tips/edit_list";
+
+		$this->load->database();
+
+		// Fetch a single review by ID
+		$query = $this->db->get_where('websitereview', array('id' => $id));
+
+		// Check if a row was found
+		if ($query->num_rows() > 0) {
+			$data['review'] = $query->row_array(); // Get the single row as an array
+		} else {
+			// Handle case where review was not found
+			show_error('Review not found', 404); // Display a 404 error
+			return;
+		}
+
+		// Fetch positive aspects for a given listing_id
+		$this->db->where('listing_id', $id);
+		$query_positive = $this->db->get('positive_aspects');
+
+		// Fetch negative aspects for a given listing_id.
+		$this->db->where('listing_id', $id);
+		$query_negative = $this->db->get('negative_aspects');
+
+		// Check if positive aspects were found
+		if ($query_positive->num_rows() > 0) {
+			$data['positive_aspects'] = $query_positive->result_array(); // Get all positive aspects as an array of arrays
+		} else {
+			$data['positive_aspects'] = array(); // No positive aspects found
+		}
+
+		// Check if negative aspects were found
+		if ($query_negative->num_rows() > 0) {
+			$data['negative_aspects'] = $query_negative->result_array(); // Get all negative aspects as an array of arrays
+		} else {
+			$data['negative_aspects'] = array(); // No negative aspects found
+		}
+
+
+
+		// var_dump($data['review']);
+		// die();
+		echo Modules::run('template/layout', $data);
 		} else {
 			// Form validation passed, proceed to update data
 
@@ -318,10 +371,11 @@ class AddTips extends MX_Controller
 			$this->upload->initialize($config);
 
 			// Check if a new 'image_upload' file is provided
+			$image_name= $existing_data->image_upload;
 			if (!empty($_FILES['image_upload']['name'])) {
 				// Load existing record to get the current image filename
 				
-				$current_image = $existing_data['image_upload'];
+				$current_image = $existing_data->image_upload;
 
 				// Upload new image
 				if ($this->upload->do_upload('image_upload')) {
@@ -343,11 +397,11 @@ class AddTips extends MX_Controller
 
 
 			//Mobile Screen app image upload
-
+			$mobile_image_name=$existing_data->mobile_app_screens_upload;
 			if (!empty($_FILES['mobile_app_screens_upload']['name'])) {
 				// Load existing record to get the current image filename
 				
-				$current_image = $existing_data['mobile_app_screens_upload'];
+				$current_image = $existing_data->mobile_app_screens_upload;
 
 				// Upload new image
 				if ($this->upload->do_upload('mobile_app_screens_upload')) {
@@ -393,8 +447,8 @@ class AddTips extends MX_Controller
 				'bonus_promotions_rating' => $this->input->post('bonus_promotions_rating'),
 				'bonus_promotions_details' => $this->input->post('bonus_promotions_details'),
 				'mobile_app_url' => $this->input->post('mobile_app_url'),
-				'mobile_app_screens_upload' => $mobile_image_name,
-				'image_upload' => $image_name,
+				'mobile_app_screens_upload' => $mobile_image_name==null?$existing_data->mobile_app_screens_upload:$mobile_image_name,
+				'image_upload' => $image_name==null?$existing_data->image_upload:$image_name,
 				'welcome_bonus' => $this->input->post('welcome_bonus'),
 				'win_rate' => $this->input->post('win_rate'),
 				'payout' => $this->input->post('payout'),
@@ -427,4 +481,26 @@ class AddTips extends MX_Controller
 		}
 		return true;
 	}
+
+
+	public function delete_list($id) {
+        // Check if ID is provided and is numeric
+        if (!is_numeric($id)) {
+            show_error('Invalid review ID'); // Show error if ID is invalid
+        }
+
+        // Call the model method to delete the review
+        $deleted = $this->WebsiteReview_model->delete_review($id);
+
+        if ($deleted) {
+            // Set flash message for success
+            $this->session->set_flashdata('success', 'Review deleted successfully');
+        } else {
+            // Set flash message for failure
+            $this->session->set_flashdata('error', 'Failed to delete review');
+        }
+
+        // Redirect back to a list page or any other page after deletion
+        redirect('dashboard/addtips/list');
+    }
 }
