@@ -143,7 +143,7 @@
                 <div class="form-group" id="bankingOptionsContainer">
                    
                     <div class="input-group">
-                        <input type="text" name="positive_aspects[]" class="form-control" placeholder="Type Positive Aspects" required>
+                        <input type="text" name="positive_aspects[]" class="form-control" placeholder="Type Positive Aspects" >
                         <div class="input-group-append">
                             <button type="button" class="btn btn-success" onclick="addMoreInput()">Add More</button>
                         </div>
@@ -186,7 +186,7 @@
                 <div class="form-group" id="negativeAspects">
                     
                     <div class="input-group">
-                        <input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects" required>
+                        <input type="text" name="negative_aspects[]" class="form-control" placeholder="Type Negative Aspects" >
                         <div class="input-group-append">
                             <button type="button" class="btn btn-success" onclick="addMoreNegativeInput()">Add More</button>
                         </div>
@@ -261,14 +261,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600"> Mobile Casino Ratings </label>
-                    <input type="text" name="mobile_casino_rating" value="<?php echo set_value('mobile_casino_rating'); ?>" class="form-control" required>
+                    <input type="text" name="mobile_casino_rating" value="<?php echo set_value('mobile_casino_rating',$review['mobile_casino_rating']); ?>" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Mobile Casino Details </label>
-                    <input type="text" name="mobile_casino_details" value="<?php echo set_value('mobile_casino_details'); ?> " class="form-control" required>
+                    <input type="text" name="mobile_casino_details" value="<?php echo set_value('mobile_casino_details',$review['mobile_casino_details']); ?> " class="form-control" required>
 
                 </div>
             </div>
@@ -277,14 +277,14 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label class="font-weight-600">Bonus Promotions Rating</label>
-                    <input type="text"  value="<?php echo set_value('bonus_promotions_rating'); ?> "  name="bonus_promotions_rating" class="form-control" required>
+                    <input type="text"  value="<?php echo set_value('bonus_promotions_rating',$review['bonus_promotions_rating']); ?> "  name="bonus_promotions_rating" class="form-control" required>
 
                 </div>
             </div>
             <div class="col-md-9">
                 <div class="form-group">
                     <label class="font-weight-600"> Bonus Promotions Details </label>
-                    <input type="text" name="bonus_promotions_details"  value="<?php echo set_value('bonus_promotions_details'); ?> "   class="form-control" required>
+                    <input type="text" name="bonus_promotions_details"  value="<?php echo set_value('bonus_promotions_details',$review['bonus_promotions_details']); ?> "   class="form-control" required>
 
                 </div>
             </div>
@@ -301,9 +301,11 @@
             <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Mobile App Screen Website Redirect Image<span class="text-danger">*</span></label>
-                    <input type="file" name="mobile_app_screens_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageFile(event)" required>
+                    <input type="file" name="mobile_app_screens_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageFile(event)" >
                     <small class="form-text text-muted">Accepted formats: JPEG, PNG, GIF, etc.</small>
-                    <div id="imagePreview" class="mt-2 col-md-4 "></div>
+                    <div id="imagePreview" class="mt-2 col-md-4 ">
+                        <img src="  <?php echo base_url('uploads/' . $review['mobile_app_screens_upload']); ?>" height="200px" alt="">
+                    </div>
                 </div>
             </div>
 
@@ -352,9 +354,13 @@
             <div class="col-md-6 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Listing Image Upload<span class="text-danger">*</span></label>
-                    <input type="file" name="image_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageView(event)" required>
+                    <input type="file" name="image_upload" id="image_file" class="form-control-file" accept="image/*" onchange="validateImageView(event)">
                     <small class="form-text text-muted">Accepted formats: JPEG, PNG, GIF, etc.</small>
-                    <div id="imageOverview" class="mt-2 col-md-4 "></div>
+                    <div id="imageOverview" class="mt-2 col-md-4 ">
+                    <div id="imagePreview" class="mt-2 col-md-4 ">
+                        <img src="  <?php echo base_url('uploads/' . $review['image_upload']); ?>" height="200px" alt="">
+                    </div>
+                    </div>
                 </div>
             </div>
 
@@ -394,7 +400,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Welcome Bonus</label>
-                    <input type="text" name="welcome_bonus" value="<?php echo set_value('welcome_bonus'); ?> "   class="form-control" required>
+                    <input type="text" name="welcome_bonus" value="<?php echo set_value('welcome_bonus',$review['welcome_bonus']); ?> "   class="form-control" required>
 
                 </div>
             </div>
@@ -402,7 +408,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Win Rate</label>
-                    <input type="text" name="win_rate" class="form-control" value="<?php echo set_value('win_rate'); ?> " required>
+                    <input type="text" name="win_rate" class="form-control" value="<?php echo set_value('win_rate',$review['win_rate']); ?> " required>
 
                 </div>
             </div>
@@ -410,7 +416,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Payout</label>
-                    <input type="text" name="payout" class="form-control" value="<?php echo set_value('payout'); ?>" required>
+                    <input type="text" name="payout" class="form-control" value="<?php echo set_value('payout',$review['payout']); ?>" required>
 
                 </div>
             </div>
@@ -418,7 +424,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label class="font-weight-600">Rating</label>
-                    <input type="text" name="rating" class="form-control" value="<?php echo set_value('rating'); ?>" required>
+                    <input type="text" name="rating" class="form-control" value="<?php echo set_value('rating',$review['rating']); ?>" required>
 
                 </div>
             </div>
@@ -426,7 +432,7 @@
            <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Website Url</label>
-                    <input type="text" name="website_url" value="<?php echo set_value('website_url'); ?>" class="form-control" required>
+                    <input type="text" name="website_url" value="<?php echo set_value('website_url',$review['website_url']); ?>" class="form-control" required>
 
                 </div>
             </div>
@@ -434,7 +440,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="font-weight-600">Color</label>
-                    <input type="color" name="color" value="<?php echo set_value('color'); ?>" class="form-control" required>
+                    <input type="color" name="color" value="<?php echo set_value('color',$review['color']); ?>" class="form-control" required>
 
                 </div>
             </div>
@@ -463,7 +469,7 @@
 
         <div class="row">
             <div class="col-md-2">
-                <button type="submit" class="btn btn-md btn-success float-right">Create Listing</button>
+                <button type="submit" class="btn btn-md btn-success float-right">Update</button>
             </div>
         </div>
 
