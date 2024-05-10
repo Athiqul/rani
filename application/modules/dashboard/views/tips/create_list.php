@@ -30,10 +30,25 @@
 <form action="<?php echo base_url('dashboard/addtips/store_list')?>" method="post" enctype="multipart/form-data">
         <div class="row">
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Website Name <span class="text-danger">*</span></label>
                     <input type="text" class="form-control" value="<?php echo set_value('website_name'); ?>" placeholder="Website Name" name="website_name" id="website_name" required>
+                </div>
+            </div>
+
+            <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                    <label class="font-weight-600">Owner <span class="text-danger">*</span></label>
+                    <input type="text" class="form-control" value="<?php echo set_value('owner'); ?>" placeholder="Owner Name" name="owner" id="owner" required>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                    <label class="font-weight-600">Founding Date<span class="text-danger">*</span></label>
+                    <input type="date" class="form-control" value="<?php echo set_value('founding_date',date('Y-m-d')); ?>" placeholder="Founding Date" name="founding_date" id="founding_date" required>
                 </div>
             </div>
 

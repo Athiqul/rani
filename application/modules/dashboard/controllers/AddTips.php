@@ -119,6 +119,8 @@ class AddTips extends MX_Controller
 			// Form validation passed, proceed to save data
 			$data = array(
 				'website_name' => $this->input->post('website_name'),
+				'owner'=>$this->input->post('owner'),
+				'founding_date'=>$this->input->post('founding_date'),
 				'bonus_code' => $this->input->post('bonus_code'),
 				'percentage_payout' => $this->input->post('percentage_payout'),
 				'payout_speed' => $this->input->post('payout_speed'),
@@ -425,6 +427,8 @@ class AddTips extends MX_Controller
 			$data = array(
 				'website_name' => $this->input->post('website_name'),
 				'bonus_code' => $this->input->post('bonus_code'),
+				'owner'=>$this->input->post('owner'),
+				'founding_date'=>$this->input->post('founding_date'),
 				'percentage_payout' => $this->input->post('percentage_payout'),
 				'payout_speed' => $this->input->post('payout_speed'),
 				'number_of_games' => $this->input->post('number_of_games'),

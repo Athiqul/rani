@@ -9,7 +9,17 @@
 <title>News365s RSS Feed RSS</title>
 <link>http://localhost/rani/</link>
 <description>Read our awesome news, every day</description>
-<lastBuildDate>24-04-2024</lastBuildDate>
+<lastBuildDate>10-05-2024</lastBuildDate>
+
+                        <item>
+                            <title>বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড</title>
+                            <link>http://localhost/rani/test-com/</link>
+                            <guid>http://localhost/rani/test-com/</guid>
+                            <description><![CDATA[ অধিনায়ক বদলেছে, তবে অধিনায়কত্ব নয়! রুতুরাজ গায়কোয়াড়ের ভাবনা বা দর্শন এমনই। মাহেন্দ্র সিং ধোনির কাছ থেকে এবার চেন্নাই সুপার কিংসের ]]></description>
+                            <enclosure url='http://localhost/rani/uploads/cricket.jpg'/>
+                            <pubDate>2024-05-10 12:20:59</pubDate>
+                            <dc:creator></dc:creator>
+                        </item>
 
                         <item>
                             <title>Test</title>
@@ -159,16 +169,6 @@
                             <description><![CDATA[ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum, neque ac vestibulum tincidunt, purus libero tristique tortor, euismod fermentum ]]></description>
                             <enclosure url='http://localhost/rani/uploads/news365_placefolder.jpg'/>
                             <pubDate>2021-02-13 07:43:16</pubDate>
-                            <dc:creator>Johan</dc:creator>
-                        </item>
-
-                        <item>
-                            <title>Lorem ipsum dolor sit amet, consectetur adipiscing elit</title>
-                            <link>http://localhost/rani/Lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit/</link>
-                            <guid>http://localhost/rani/Lorem-ipsum-dolor-sit-amet--consectetur-adipiscing-elit/</guid>
-                            <description><![CDATA[ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed dictum, neque ac vestibulum tincidunt, purus libero tristique tortor, euismod fermentum ]]></description>
-                            <enclosure url='http://localhost/rani/uploads/news365_placefolder.jpg'/>
-                            <pubDate>2021-02-08 06:44:03</pubDate>
                             <dc:creator>Johan</dc:creator>
                         </item>
 </channel>

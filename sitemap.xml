@@ -170,6 +170,12 @@
                 </url>
 
                 <url>
+                    <loc>http://localhost/rani/test-com/</loc>
+                    <changefreq> always </changefreq>
+                    <priority>1.0</priority>    
+                </url>
+
+                <url>
                     <loc>http://localhost/rani/Test/</loc>
                     <changefreq> always </changefreq>
                     <priority>1.0</priority>    
