@@ -97,6 +97,9 @@ class Article_controller extends CI_Controller {
 
     public function news_details($url) {
 
+        // echo "Hi";
+        // die();
+
         $url = urldecode($this->uri->segment(1)); 
         $rurl = $this->db->where('from_title',$url)->get('redirection_tbl')->row();
         if(!empty($rurl)){
@@ -104,6 +107,7 @@ class Article_controller extends CI_Controller {
         }
 
         $news = $this->db->where('encode_title',$url)->get('news_mst')->row();
+    
         if(!empty($news)){
             $curr_page = $news->page;
             $data = $this->article_model->article_select($news->news_id);
@@ -111,6 +115,7 @@ class Article_controller extends CI_Controller {
             redirect('error_404_not_found');  
         }
 
+       
 
         // reader_hit count ;
         $data_arr = array('reader_hit' => $data['reader_hit'] + 1);
@@ -155,11 +160,14 @@ class Article_controller extends CI_Controller {
         $data['footer_menu']    = $this->settings->menu_position_3();
         $data['postmeta'] = $this->db->where('news_id',@$news->news_id)->get('post_seo_onpage')->row();
 
-        
+        //Get Latest News
+        $data['latest_news']=$this->db->where('page',@$news->page)->get('news_mst')->result();
+        // var_dump($data['latest_news']);
+        // die();
         $this->load->view('themes/' . $default_theme . '/header', $data);
-        $this->load->view('themes/' . $default_theme . '/breaking');
+        // $this->load->view('themes/' . $default_theme . '/breaking');
         $this->load->view('themes/' . $default_theme . '/menu');
-        $this->load->view('themes/' . $default_theme . '/article_view');
+        $this->load->view('themes/' . $default_theme . '/news_view');
         $this->load->view('themes/' . $default_theme . '/footer');        
         $this->output->cache(30);
 

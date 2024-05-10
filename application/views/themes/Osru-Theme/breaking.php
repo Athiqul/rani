@@ -44,3 +44,87 @@
                 </div>
             </div>
         </div>
+
+
+         <div class="w-full space-y-1 lg:space-y-1 border rounded">
+
+                        <div class="mt-4 pl-4 space-y-0">
+                            <h1 class="text-lg font-bold text-blue-800">সর্বশেষ সংবাদ</h1>
+                        </div>
+                        <hr>
+                        <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+                            <div class="">
+                                <span class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">১</span>
+                            </div>
+                            <div class="news-card-small-content px-3 py-0">
+                                <h4 class="news-small-heading text-sm font-extrabold">
+                                    <a href="/pages/india-v-bangladesh---icc-men-s-t20-world-cup">বাংলাদেশের
+                                        ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                                </h4>
+                                <div class="flex justify-between items-center  text-slate-400">
+                                    <span class=" text-sm ">১২ মিনিট আগে</span>
+                                </div>
+                                <hr class="mt-2">
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+                            <div class="">
+                                <span class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">২</span>
+                            </div>
+                            <div class="news-card-small-content px-3 py-0">
+                                <h4 class="news-small-heading text-sm font-extrabold">
+                                    <a href="/pages/india-v-bangladesh---icc-men-s-t20-world-cup">বাংলাদেশের
+                                        ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                                </h4>
+                                <div class="flex justify-between items-center  text-slate-400">
+                                    <span class=" text-sm ">১২ মিনিট আগে</span>
+                                </div>
+                                <hr class="mt-1">
+                            </div>
+                        </div>
+
+                        <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+                            <div class="">
+                                <span class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৩</span>
+                            </div>
+                            <div class="news-card-small-content px-3 py-0">
+                                <h4 class="news-small-heading text-sm font-extrabold">
+                                    <a href="/pages/india-v-bangladesh---icc-men-s-t20-world-cup">বাংলাদেশের
+                                        ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                                </h4>
+                                <div class="flex justify-between items-center  text-slate-400">
+                                    <span class=" text-sm ">১২ মিনিট আগে</span>
+                                </div>
+                                <hr class="mt-1">
+                            </div>
+                        </div>
+
+                        <div class="news-card-small flex justify-between items-start space-x-0 space-y-0">
+
+                            <div class="">
+                                <span class="inline-flex items-center justify-center h-12 w-12 p-4 text-lg font-bold leading-none text-white bg-blue-900 rounded-full">৪</span>
+                            </div>
+                            <div class="news-card-small-content px-3 py-0">
+                                <h4 class="news-small-heading text-sm font-extrabold">
+                                    <a href="/pages/india-v-bangladesh---icc-men-s-t20-world-cup">বাংলাদেশের
+                                        ব্যাটিং ব্যর্থতার পর সাড়ে চারশ পেরিয়ে শ্রীলঙ্কার লিড..</a>
+                                </h4>
+                                <div class="flex justify-between items-center  text-slate-400">
+                                    <span class=" text-sm ">১২ মিনিট আগে</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                    </div>

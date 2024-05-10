@@ -168,3 +168,19 @@ if (!function_exists('add')) {
     }
 }
 
+if(!function_exists('numberToBengali'))
+{
+    function numberToBengali($string)
+    {
+        $data=['০','১','২','৩','৪','৫','৬','৭','৮','৯'];
+        $bn="";
+        $len=strlen($string);
+        for($i=0;$i<$len;$i++)
+        {
+          $bn.=$string[$i];
+        }
+
+        return $len;
+    }
+}
+
