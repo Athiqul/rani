@@ -41,6 +41,9 @@ class Cricket extends CI_Controller
         $data['main_menu'] = $this->settings->main_menu();
         $data['cat_menus'] = $this->settings->footer_menu();
         $data['footer_menu'] = $this->settings->menu_position_3();
+       
+        $data['latest_news']=$this->db->where('page','cricket-betting-sites')->get('news_mst')->result();
+        //var_dump($data['latest_news']);
 
 
         $this->load->view('themes/' . 'Osru-Theme' . '/header', $data);
