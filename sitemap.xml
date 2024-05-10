@@ -170,6 +170,12 @@
                 </url>
 
                 <url>
+                    <loc>http://localhost/rani/real-madrid-ucl-final-2024/</loc>
+                    <changefreq> always </changefreq>
+                    <priority>1.0</priority>    
+                </url>
+
+                <url>
                     <loc>http://localhost/rani/test-com/</loc>
                     <changefreq> always </changefreq>
                     <priority>1.0</priority>    
