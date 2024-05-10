@@ -152,9 +152,9 @@ $ext = end($ext);
             <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
                 <div class="lg:w-[66%]">
                     <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
-                        <img src="<?php echo html_escape(base_url() . 'uploads/' . $latest_news[0]->image) ?>" alt="University of Southern California" class="absolute inset-0 h-full  w-full object-cover">
+                        <img src="<?php echo html_escape(base_url() . 'uploads/' . $latest_news[0]->image) ?>" alt="<?php echo $latest_news[0]->image_alt?>" class="absolute inset-0 h-full  w-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
-                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white"><?php echo $latest_news[0]->title ?></h3>
+                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white"><?php echo $latest_news[0]->image_title ?></h3>
                         <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
                             <p><?php
                                 $strtime = strtotime($latest_news[0]->post_date);
@@ -230,18 +230,24 @@ $ext = end($ext);
         <div class="custom-container">
             <!-- <h1 class="mb-5 section-heading">Football</h1> -->
             <div class="flex flex-col lg:flex-row gap-5 lg:gap-7">
+                   
+            <?php if(count($latest_news)>1):?>
 
                 <div class="lg:w-[33%]">
                     <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
-                        <img src="../uploads/2023-11-19T172113Z_983293843_UP1EJBJ1C7AXN_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1703363199.webp" alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+                        <img src="<?php echo base_url().'uploads/'.$latest_news[1]->image?>" alt="<?php echo $latest_news[1]->$image_alt?>" class="absolute inset-0 h-full w-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
-                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
-                            চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white"><?php echo $latest_news[1]->$image_title?></h3>
                         <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                            <p>১৫ মিনিট আগে</p>
+                            <p><?php
+                                $strtime = strtotime($latest_news[1]->post_date);
+                                $converted_date = convertDate(date('l, d M, Y', $strtime));
+                                echo $converted_date; ?></p>
                         </div>
                     </article>
                 </div>
+
+                <?php endif?>
 
                 <div class="lg:w-[33%]">
                     <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
@@ -253,18 +259,22 @@ $ext = end($ext);
                     </article>
                 </div>
 
-
-                <div class="lg:w-[33%]">
+                <?php if(count($latest_news)>2):?>
+                    <div class="lg:w-[33%]">
                     <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
-                        <img src="../uploads/2023-11-19T172113Z_983293843_UP1EJBJ1C7AXN_RTRMADP_3_CRICKET-WORLDCUP-IND-AUS-1703363199.webp" alt="University of Southern California" class="absolute inset-0 h-full w-full object-cover">
+                        <img src="<?php echo base_url().'uploads/'.$latest_news[2]->image?>" alt="<?php echo $latest_news[2]->$image_alt?>" class="absolute inset-0 h-full w-full object-cover">
                         <div class="absolute inset-0 bg-gradient-to-r from-blue-700 opacity-40"></div>
-                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white">বাংলাদেশের ব্যাটিং ব্যর্থতার পর সাড়ে
-                            চারশ পেরিয়ে শ্রীলঙ্কার লিড</h3>
+                        <h3 class="z-10 mr-0 gap-y-1 leading-6 text-sm font-bold text-white"><?php echo $latest_news[2]->$image_title?></h3>
                         <div class="z-10 ml-5 gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                            <p>১৫ মিনিট আগে</p>
+                            <p><?php
+                                $strtime = strtotime($latest_news[2]->post_date);
+                                $converted_date = convertDate(date('l, d M, Y', $strtime));
+                                echo $converted_date; ?></p>
                         </div>
                     </article>
                 </div>
+
+                <?php endif?>
 
 
 
