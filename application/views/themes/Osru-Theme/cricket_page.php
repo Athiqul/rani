@@ -340,7 +340,7 @@
               </h4>
 
             </div>
-            <div class="shrink-0 rounded  px-1.5  text-[10px]  text-white flex  items-center">
+            <div class="shrink-0 rounded  px-1.5  text-[10px]  text-white flex bg-orange-500 gap-2  items-center">
               <i class="fa-regular fa-circle-dot"></i>
               <span>Live</span>
             </div>
@@ -348,8 +348,8 @@
 
           <div class="my-5  gap-2 lg:gap-4 ">
             <div class="shrink-0 flex justify-between my-4 items-center gap-3">
-              <div class="flex justify-start items-center">
-                <img src="${event_home_team_logo}" alt="${event_home_team}" class="w-7 lg:h-7 lg:w-12  rounded-full">
+              <div class="flex justify-start gap-2 items-center">
+                <img src="${event_home_team_logo}" alt="${event_home_team}" class="w-7 lg:h-7 lg:w-12  ">
                 <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">${event_home_team}</h6>
               </div>
 
@@ -362,8 +362,8 @@
 
 
             <div class="shrink-0 flex justify-between items-center gap-3">
-              <div class="flex justify-start items-center">
-                <img src="${event_away_team_logo}" alt="${event_away_team}" class="w-7 lg:h-7 lg:w-12  rounded-full">
+              <div class="flex justify-start gap-2 items-center">
+                <img src="${event_away_team_logo}" alt="${event_away_team}" class="w-7 lg:h-7 lg:w-12  ">
                 <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">${event_away_team}</h6>
               </div>
 
