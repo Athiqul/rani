@@ -152,6 +152,7 @@ class AddTips extends MX_Controller
 				'rating' => $this->input->post('rating'),
 				'website_url' => $this->input->post('website_url'),
 				'color' => $this->input->post('color'),
+				'category' => $this->input->post('category'),
 
 			);
 
@@ -459,6 +460,7 @@ class AddTips extends MX_Controller
 				'rating' => $this->input->post('rating'),
 				'website_url' => $this->input->post('website_url'),
 				'color' => $this->input->post('color'),
+				'category'=>$this->input->post('category'),
 
 			);
 

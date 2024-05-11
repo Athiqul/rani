@@ -94,7 +94,21 @@
                 </div>
             </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                    <label class="font-weight-600">Select Category<span class="text-danger">*</span></label>
+                    <select name="category"  class="form-control">
+                        <option value="top" <?php echo $review['category']=='top'?'selected':''?>>Top Betting Sites</option>
+                        <option <?php echo $review['category']=='cricket'?'selected':''?> value="cricket">Cricket Betting Sites</option>
+                        <option <?php echo $review['category']=='football'?'selected':''?> value="football">Football Betting Sites</option>
+                        <option <?php echo $review['category']=='casino'?'selected':''?> value="casino">Casino Betting Sites</option>
+                        <option <?php echo $review['category']=='certified'?'selected':''?> value="certified">Certified Casinos</option>
+                        <option <?php echo $review['category']=='mobile'?'selected':''?> value="mobile">Mobile Casinos</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-8 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Language<span class="text-danger">*</span></label>
                     <input type="text" data-role="tagsinput" value="<?php echo set_value('language',$review['language']); ?>" class="form-control" name="language" id="language" required>

@@ -93,8 +93,21 @@
                     <input type="text" class="form-control" value="<?php echo set_value('compatible_with'); ?>" name="compatible_with" id="compatible_with" required>
                 </div>
             </div>
+            <div class="col-md-4 pr-md-1">
+                <div class="form-group">
+                    <label class="font-weight-600">Select Category<span class="text-danger">*</span></label>
+                    <select name="category" id="" class="form-control">
+                        <option value="top">Top Betting Sites</option>
+                        <option value="cricket">Cricket Betting Sites</option>
+                        <option value="football">Football Betting Sites</option>
+                        <option value="casino">Casino Betting Sites</option>
+                        <option value="certified">Certified Casinos</option>
+                        <option value="mobile">Mobile Casinos</option>
+                    </select>
+                </div>
+            </div>
 
-            <div class="col-md-12 pr-md-1">
+            <div class="col-md-8 pr-md-1">
                 <div class="form-group">
                     <label class="font-weight-600">Language<span class="text-danger">*</span></label>
                     <input type="text" data-role="tagsinput" value="<?php echo set_value('language','Bangla, German, Greek, English, Spanish, Finnish, French, Hindi, Creation'); ?>" class="form-control" name="language" id="language" required>
