@@ -16,7 +16,7 @@
         <li class="flex items-center gap-4">
           <span class="text-[#444D56] font-medium"><a href="#">Home</a></span>
           <span class="text-[#73738C] font-semibold"> &gt; </span>
-          <span class="text-[#73738C] font-medium">Tops &amp; Predictions</span>
+          <span class="text-[#73738C] font-medium">Tips &amp; Predictions</span>
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@
   <section class="mt-7 mb-10">
     <div class="custom-container">
       <div class="flex justify-between items-center mb-5">
-        <h1 class="text-black text-xl lg:text-3xl font-semibold">Top Betting platform in india</h1>
+        <h1 class="text-black text-xl lg:text-3xl font-semibold"><?php echo $page?></h1>
       </div>
 
       <div class="space-y-4 lg:space-y-5">

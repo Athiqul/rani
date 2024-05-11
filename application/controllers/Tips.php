@@ -19,6 +19,10 @@ class Tips extends CI_Controller {
     }
 
     public function prediction() {
+
+        $page=$this->input->get('value');
+        // var_dump($page);
+        // die();
         // Default method, you can place your default logic here
          # website setting data     
          $data['setting']                = $this->db->get('app_settings')->row();
@@ -39,14 +43,17 @@ class Tips extends CI_Controller {
          $data['cat_menus'] = $this->settings->footer_menu();
          $data['footer_menu'] = $this->settings->menu_position_3();
 
-         $query = $this->db->get('websitereview'); // Assuming 'website_reviews' is your database table
+         $query = $this->db->get_where('websitereview',['category'=>$page]);// Assuming 'website_reviews' is your database table
 
 		// Check if there are rows returned
 		if ($query->num_rows() > 0) {
 			$data['lists'] = $query->result_array(); // Get results as an array of rows
 		} else {
-			$data['lists'] = array(); // Initialize empty array if no rows found
+			redirect('error_404_not_found');  // Initialize empty array if no rows found
 		}
+
+
+        $data['page']=ucwords( str_replace('-',' ',$this->input->get('page')));
  
  
          $this->load->view('themes/' . 'Osru-Theme' . '/header', $data);
@@ -57,6 +64,7 @@ class Tips extends CI_Controller {
     }
 
     public function betting_overview($review_id) {
+
 
         // 	error_reporting(E_ALL);
 		// ini_set('display_errors', 1);
