@@ -14,7 +14,7 @@
         
                 <div class="sidebar-header">
                     <a href="<?php echo base_url('dashboard/home')?>" class="logo">
-                        <img src="<?php echo base_url()?><?php echo $settings->app_logo;?>" alt="">
+                        <img src="<?php echo base_url()?>application/views/themes/Osru-Theme/web-assets/images/header/logo.png" alt="">
                     </a>
                 </div><!--/.sidebar header-->
 

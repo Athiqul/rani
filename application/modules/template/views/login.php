@@ -1,15 +1,18 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-
+<?php defined('BASEPATH') OR exit('No direct script access allowed');?>
+ <?php 
+     $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
+    
+     ?>
 <!doctype html>
 <html lang="en">
     <head>
-        <!-- Required meta tags -->
+      
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="<?php echo  html_escape($settings->website_title)?>">
         <meta name="author" content="Bdtask">
-        <title><?php echo  html_escape($settings->website_title)?></title>
-        <link rel="shortcut icon" href="<?php echo base_url(). html_escape($settings->favicon)?>">
+        <title>ScoreSoup</title>
+        <link rel="shortcut icon" href="<?php echo base_url()?>assets/scoresoup.logo.svg">
         <link href="<?php echo base_url(); ?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/plugins/fontawesome/css/all.min.css" rel="stylesheet">
         <link href="<?php echo base_url(); ?>assets/dist/css/style.css" rel="stylesheet">
@@ -36,7 +39,7 @@
             <div class="container py-5 py-sm-7">
 
                 <a class="d-flex justify-content-center mb-5 news365-logo" href="<?php echo base_url('admin')?>">
-                    <img class="z-index-2" src="<?php echo base_url().$settings->logo?>" alt="Image Description">
+                    <img class="z-index-2" src="<?php echo base_url()?>application/views/themes/Osru-Theme/web-assets/images/header/logo.png" alt="Image Description">
                 </a>
 
                 <div class="row justify-content-center">

@@ -14,7 +14,7 @@
     <div class="custom-container">
       <ul>
         <li class="flex items-center gap-4">
-          <span class="text-[#444D56] font-medium"><a href="#">Home</a></span>
+          <span class="text-[#444D56] font-medium"><a href="/">Home</a></span>
           <span class="text-[#73738C] font-semibold"> &gt; </span>
           <span class="text-[#73738C] font-medium">Tips &amp; Predictions</span>
         </li>
