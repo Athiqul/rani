@@ -35,6 +35,7 @@ class Football extends CI_Controller {
          $data['main_menu'] = $this->settings->main_menu();
          $data['cat_menus'] = $this->settings->footer_menu();
          $data['footer_menu'] = $this->settings->menu_position_3();
+         $data['ads']            = $this->ads->SelectAds();
  
          $data['latest_news']=$this->db->where('page','football-news')->get('news_mst')->result();
          $this->load->view('themes/' . 'Osru-Theme' . '/header', $data);

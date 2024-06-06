@@ -34,7 +34,7 @@
   
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="shortcut icon" href="<?php base_url()?>assets/scoresoupfront.logo.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo base_url()?>assets/scoresoupfront.logo.svg" type="image/x-icon">
   <!-- Slick Slider CDN -->
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />

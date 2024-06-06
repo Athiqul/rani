@@ -11,7 +11,13 @@
 
     </div>
 
-
+    <?php
+    $this->load->helper('text');
+    $bu = base_url();
+    if (isset($ads) && is_array($ads)) {
+        extract($ads);
+    }
+?>
 </div>
       <!--<div class="progress-bar-container mt-4 hidden lg:block">-->
       <!--  <div class="progress-bar" style="width: 0"></div>-->
@@ -25,6 +31,7 @@
     <div class="custom-container">
       <div class="bg-secondary rounded-xl h-[90px] grid place-content-center text-center">
         <h4 class="text-primary text-xl font-semibold">Advertisement</h4>
+        <?php echo @$home_15;?>
       </div>
     </div>
   </section>
@@ -126,7 +133,7 @@
             <article class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl px-8 pb-8 pt-40 h-full ">
 
               <div class="absolute inset-0 bg-blue-900 flex items-center justify-center">
-                <h2 class=" text-center text-white">Adds</h2>
+              <?php echo @$home_14;?>
               </div>
 
             </article>
@@ -265,7 +272,7 @@
   <script>
     $(document).ready(function() {
 
-      function footballApi(value = "football", api_key = "eb628efd6a6c3b3597af5aed32bf72939df0142a2fa2fda0d1de3d48d2b9fa19") {
+      function footballApi(value = "football", api_key = "5634c65d7237edbb397ea03d46ab835e9498c0cd6a7db1e83a3738752f27e5f9") {
         //console.log(value);
         // document.addEventListener('DOMContentLoaded', function() {
         const apiUrl = `https://apiv2.allsportsapi.com/${value}/?met=Livescore&APIkey=${api_key}`; // Replace with your API URL
@@ -306,8 +313,8 @@
                 var event_status_info = allMatch[i].event_stadium;
                 var event_name= allMatch[i].country_name+ " "+ allMatch[i].league_name;
                 var event_toss = allMatch[i].event_toss;
-                var event_home_final_result = allMatch[i].event_final_result;
-                var event_away_final_result = allMatch[i].event_final_result;
+                var event_home_final_result = allMatch[i].event_final_result.split("-")[0];
+                var event_away_final_result = allMatch[i].event_final_result.split("-")[1];
 
                 if (event_home_final_result == '') {
                   event_home_final_result = '--';
@@ -322,49 +329,57 @@
                 }
               }
 
-              html += `<div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
+              if(event_name.length>24)
+              {
+                 event_name=event_name.substr(0,24)+'...';
+              }
+
+              var home_team_image=(event_home_team_logo)?` <img src="${event_home_team_logo}" alt="${event_home_team}"  class="w-[42.857px] h-[24px] gray rounded-lg"/>`:'';
+              var away_team_image=(event_away_team_logo)?` <img src="${event_away_team_logo}" alt="${event_away_team}"  class="w-[42.857px] h-[24px] gray rounded-lg"/>`:'';
+
+              html += `<div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 [background:rgba(206,224,255,0.18)] rounded-xl border border-solid border-[rgba(0,41,113,0.20)]">
           <div class="flex justify-between items-start gap-2">
             <div>
-              <h4 class="text-[10px] lg:text-[11px] leading-[14px] text-white">
+              <h4 class="text-[#002971] text-center text-xs font-semibold leading-[18px]">
                 ${event_name}
               </h4>
 
             </div>
-            <div class="shrink-0 rounded  px-1.5  text-[10px]  text-white flex gap-1 bg-orange-400 items-center">
-              <i class="fa-regular fa-circle-dot"></i>
-              <span>Live</span>
+            <div class="px-3 shrink-0 rounded [background:#002971] text-center">
+              
+              <span class='text-[#FFBC00] text-center  text-[13px] font-medium leading-[18px]'>Live</span>
             </div>
           </div>
 
           <div class="my-5  gap-2 lg:gap-4 ">
-            <div class="shrink-0 flex justify-between my-4 items-center gap-3">
-              <div class="flex justify-start gap-2 items-center">
-                <img src="${event_home_team_logo}" alt="${event_home_team}" class="w-7 lg:h-7 lg:w-12 ">
-                <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">${event_home_team}</h6>
+            <div class="shrink-0 flex justify-between my-3 items-center gap-3">
+              <div class="flex justify-start gap-0 items-center">
+                ${home_team_image}
+                <h6 class="m-0 p-2 text-[#002971] text-start  text-xs font-bold leading-[18px] uppercase">${event_home_team}</h6>
               </div>
 
               <div>
 
-                <p class="mt-.5 text-xs  text-white ">${event_home_final_result}</p>
+                <p class="text-[#002971]  text-base font-medium leading-[normal]">${event_home_final_result}</p>
               </div>
             </div>
 
 
 
             <div class="shrink-0 flex justify-between items-center gap-3">
-              <div class="flex justify-start gap-2 items-center">
-                <img src="${event_away_team_logo}" alt="${event_away_team}" class="w-7 lg:h-7 lg:w-12  ">
-                <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">${event_away_team}</h6>
+              <div class="flex justify-start gap-0 items-center">
+                ${away_team_image}
+                <h6 class="text-[#002971] p-2 m-0 text-center  text-xs font-bold leading-[18px] uppercase">${event_away_team}</h6>
               </div>
 
               <div>
 
-                <p class="mt-.5 text-xs  text-white ">${event_away_final_result}</p>
+                <p class="text-[#002971]  text-base font-medium leading-[normal]">${event_away_final_result}</p>
               </div>
             </div>
           </div>
 
-          <p class="text-[10px] lg:text-[11px] leading-[15px] text-primary">
+          <p class="text-[#002971]   text-[15px] font-medium leading-[18px]">
             ${event_status_info}
           </p>
         </div>`;
@@ -373,54 +388,52 @@
             }
           })
           .catch(error => {
-            html = `<div class="min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 bg-secondary rounded-xl">
-              <div class="flex justify-between items-start gap-2">
-                <div>
-                  <h4 class="text-[10px] lg:text-[15px] leading-[18px] font-bold text-white">
-                    Zimbabwe Tour of Sri Lanka, 2024
-                  </h4>
-                  <p class="lg:mt-1.5 text-[10px] lg:text-sm text-white">2nd ODi | 08 Jan 2024</p>
-                </div>
-                <div
-                  class="shrink-0 rounded py-1 px-1.5 bg-primary/25 text-xs lg:text-sm text-primary flex gap-1.5 items-center"
-                >
-                  <i class="fa-regular fa-circle-dot"></i>
-                  <span>Live</span>
-                </div>
+            html = `<div class="banner-slider" id="scrollport"><div class="slider-item min-w-[276px] lg:min-w-[350px] py-3 lg:py-5 px-4 lg:px-6 [background:rgba(206,224,255,0.18)] rounded-xl border border-solid border-[rgba(0,41,113,0.20)]">
+          <div class="flex justify-between items-start gap-2">
+            <div>
+              <h4 class="text-[#393536] text-center [font-family:" plus_jakarta_sans"]="" text-[15px]="" font-semibold="" leading-[18px]"="">
+                Worldcup AFC World C...
+              </h4>
+
+            </div>
+            <div class="w-[41px] h-[22px] shrink-0 rounded [background:rgba(249,146,7,0.17)] text-center">
+              
+              <span class="text-[#393536] text-center [font-family:&quot;Plus_Jakarta_Sans&quot;] text-[13px] font-medium leading-[18px]">Live</span>
+            </div>
+          </div>
+
+          <div class="my-5  gap-2 lg:gap-4 ">
+            <div class="shrink-0 flex justify-between my-4 items-center gap-3">
+              <div class="flex justify-start gap-2 items-center">
+                <img src="https://apiv2.allsportsapi.com/logo/484_indonesia.jpg" alt="Indonesia" style="width:35px;height:24px">
+                <h6 class="text-[10px] lg:text-sm text-[#393536] uppercase">Indonesia</h6>
               </div>
 
-              <div class="my-5 flex justify-between items-start gap-2 lg:gap-4">
-                <div class="shrink-0 flex items-center gap-3">
-                  <img
-                    src="src/images/global/srilanka-flag.png"
-                    alt="Srilanka flag"
-                    class="w-7 lg:w-auto"
-                  />
-                  <div>
-                    <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI LANKA</h6>
-                    <p class="mt-.5 text-xs lg:text-base text-white font-semibold">169/7 (41.4)</p>
-                  </div>
-                </div>
+              <div>
 
-                <div class="shrink-0 text-primary text-xs lg:text-2xl font-medium">VS</div>
+                <p class="text-[#002971] [font-family:" plus_jakarta_sans"]="" text-base="" font-medium="" leading-[normal]"="">0 - 0</p>
+              </div>
+            </div>
 
-                <div class="shrink-0 flex items-center gap-3">
-                  <img
-                    src="src/images/global/zim-flag.png"
-                    alt="Srilanka flag"
-                    class="w-7 lg:w-auto"
-                  />
-                  <div>
-                    <h6 class="text-[10px] lg:text-sm text-[#F1F5F9] uppercase">SRI LANKA</h6>
-                    <p class="mt-.5 text-xs lg:text-base text-white font-semibold">169/7 (41.4)</p>
-                  </div>
-                </div>
+
+
+            <div class="shrink-0 flex justify-between items-center gap-3">
+              <div class="flex justify-start gap-2 items-center">
+                <img src="https://apiv2.allsportsapi.com/logo/642_iraq.jpg" alt="Iraq" style="width:35px;height:24px" "="">
+                <h6 class="text-[10px] lg:text-sm text-[#393536] uppercase">Iraq</h6>
               </div>
 
-              <p class="text-[11px] lg:text-[15px] leading-[18px] text-primary font-semibold">
-                Sri Lanka need 40 runs in 50 balls at 4.8 rpo
-              </p>
-            </div>`;
+              <div>
+
+                <p class="text-[#002971] [font-family:" plus_jakarta_sans"]="" text-base="" font-medium="" leading-[normal]"="">0 - 0</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="text-[#002971]  [font-family:" plus_jakarta_sans"]="" text-[15px]="" font-medium="" leading-[18px]"="">
+            Gelora Bung Karno Stadium, Senayan
+          </p>
+        </div></div>`;
 
 
             $(".banner-slider").html(html);

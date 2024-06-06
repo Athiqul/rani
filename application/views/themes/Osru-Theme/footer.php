@@ -1,7 +1,7 @@
 <?php 
    
     $ascurl = base_url().'application/views/themes/'.html_escape($default_theme).'/web-assets';
-    
+    $this->load->helper('url');
    
 
 
@@ -9,42 +9,7 @@
 <!-- Footer -->
 <footer class="mb-[100px] lg:mb-0 bg-secondary">
     <div class="custom-container">
-      <!-- <div class="py-4 lg:flex lg:justify-between lg:items-center">
-        <div class="text-white lg:divide-x-4 lg:divide-white lg:flex lg:items-center lg:space-x-5">
-          <p class="text-center text-sm lg:text-base">
-            ©2024 Scoresoup all right Reserved
-          </p>
-          <p class="hidden lg:block pl-5">
-            <a href="#">Terms & Condition</a>
-          </p>
-        </div>
-
-        <div class="text-white hidden lg:flex items-center gap-6">
-          <p>Follow us</p>
-          <ul class="flex items-center gap-5">
-            <li>
-              <a href="#">
-                <img src="./images/global/facebook.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="./images/global/youTube.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="./images/global/x.png" alt="" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="./images/global/instagram.png" alt="" />
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div> -->
+      
       <nav class="py-4 md:flex justify-between items-center gap-3">
         <ul>
           <li>
@@ -145,8 +110,8 @@
           <p class="mt-1 text-white text-xs">Review & Prediction</p>
         </a>
       </li>
-      <li>
-        <a href="<?php echo base_url('/')?>" >
+      <li class="">
+        <a href="<?php echo base_url('/')?>" class="<?php echo current_url()==base_url('/')?'bg-[#FFBC00]':''; ?>">
           <svg class="m-auto" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
             <script xmlns="" />
             <path
@@ -163,8 +128,8 @@
       </li>
 
       <li>
-        <a href="<?php echo base_url('cricket/cricketnews')?>" class="">
-         <img src="../images/Scoreboard.png" class="m-auto" />
+        <a href="<?php echo base_url('cricket/cricketnews')?>" class="<?php echo current_url()==base_url('cricket/cricketnews')?'bg-[#FFBC00]':''; ?>">
+         <img src="<?php echo $ascurl?>/images/Scoreboard.png" class="m-auto " />
           <p class="mt-1 text-[#F1F5F9] text-[10px]">cricket</p>
         </a>
       </li>
@@ -172,8 +137,8 @@
     
 
       <li>
-        <a href="<?php echo base_url('football/index')?>" class="">
-          <img src="../images/football.png" class="m-auto" />
+        <a href="<?php echo base_url('football/index')?>" class="<?php echo current_url()==base_url('football/index')?'bg-[#FFBC00]':''; ?>">
+          <img src="<?php echo $ascurl?>/images/football.png" class="m-auto" />
           <p class="mt-1 text-[#F1F5F9] text-[10px]">Football</p>
         </a>
       </li>

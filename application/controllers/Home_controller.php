@@ -64,7 +64,8 @@ class Home_controller extends CI_Controller {
         $data['footer_menu']    = $this->settings->menu_position_3();
         $data['cat']    = $this->settings->count_post_by_cat();
         
-      
+        $data['cricket_news']=$this->db->where('page','cricket-news')->get('news_mst')->result();
+        $data['football_news']=$this->db->where('page','football-news')->get('news_mst')->result();
         $this->load->view('themes/' . $default_theme . '/header', $data);
        
         $this->load->view('themes/' . $default_theme . '/menu');
